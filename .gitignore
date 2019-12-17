@@ -1,5 +1,11 @@
+# OS Files
 desktop.ini
 .DS_Store
 
+# Environment
 .vscode
 auth.json
+
+# Javascript
+package-lock.json
+node_modules
