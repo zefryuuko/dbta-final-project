@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="card border-dark mb-3" style="width: 20rem; margin: 50px 120px 10px auto; padding: 20px;">
-                <img src="/resources/staff.png" class="card-img-top" style="width:80%; margin-left:25px;" />
+                <img src="/resources/staff.svg" class="card-img-top" style="width:80%; margin-left:25px;" />
                 <div class="card-body">
                     <p class="card-text" style="text-align: center;">
                         Click here if you are a staff to access all the staff features!
@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-6">
             <div class="card border-dark mb-3" style="width: 20rem; margin: 50px auto 10px 120px; padding: 20px;">
-                <img src="/resources/cashier.png" class="card-img-top" style="width:80%; margin-left:25px;" />
+                <img src="/resources/cashier.svg" class="card-img-top" style="width:80%; margin-left:25px;" />
                 <div class="card-body">
                     <p class="card-text" style="text-align: center;">
                         Click here if you are a cashier to access all the cashier features!

@@ -6,7 +6,7 @@
                 DASHBOARD
             </p>
         </a><a class="navbar-brand" href="#" style="margin-right:30px; margin-top: 10px;">
-            <img src="/resources/avatar.png" width="40" height="40" class="d-inline-block align-top" alt="" style="margin-left: 955.5px;" />
+            <img src="/resources/avatar.svg" width="40" height="40" class="d-inline-block align-top" alt="" style="margin-left: 955.5px;" />
             <p style="float: right; padding: 5px; margin-top: 5px; font-size: 15px;">
                 Welcome back, Zef!
             </p>

@@ -15,7 +15,7 @@
 
     <div class="card-deck" style="width:1455px; margin-left: 40px; margin-top: 50px">
         <div class="card border-dark mb-3">
-            <img src="/resources/history.jpg" class="card-img-top" style="width:80%;
+            <img src="/resources/history.svg" class="card-img-top" style="width:80%;
         margin-left:25px;
         margin-top:10px;" />
             <div class="card-body">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/order.png" class="card-img-top" style="width:87%; margin-left: 25px; margin-top:10px;" />
+            <img src="/resources/order.svg" class="card-img-top" style="width:87%; margin-left: 25px; margin-top:10px;" />
             <div class="card-body">
                 <p class="card-text" style="text-align: center;">
                     Click here to make a new order.
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/staff.png" class="card-img-top" style="width:90%; margin-left:25px;" />
+            <img src="/resources/staff.svg" class="card-img-top" style="width:90%; margin-left:25px;" />
             <div class="card-body">
                 <p class="card-text" style="margin-top: -2px; text-align: center;">
                     Click here to see staff details.
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/menu.jpg" class="card-img-top" style="width:80%; margin-left:25px;" />
+            <img src="/resources/menu.svg" class="card-img-top" style="width:80%; margin-left:25px;" />
             <div class="card-body">
                 <p class="card-text" style="margin-top: 32px; text-align: center;">
                     Click here to see & add item to menu.

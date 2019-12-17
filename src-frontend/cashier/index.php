@@ -13,7 +13,7 @@
     <?php include("../components/navbar/navbar_welcome.php"); ?>
     <div class="card-deck" style="width:800px; margin-left: 350px; margin-top: 50px">
         <div class="card border-dark mb-3">
-            <img src="/resources/history.jpg" class="card-img-top" style="width:80%;
+            <img src="/resources/history.avg" class="card-img-top" style="width:80%;
         margin-left:25px;
         margin-top:10px;" />
             <div class="card-body">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/order.png" class="card-img-top" style="width:89%; margin-left: 25px; margin-top:10px;" />
+            <img src="/resources/order.avg" class="card-img-top" style="width:89%; margin-left: 25px; margin-top:10px;" />
             <div class="card-body">
                 <p class="card-text" style="text-align: center;">
                     Click here to make a new order.

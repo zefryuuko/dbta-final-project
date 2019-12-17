@@ -35,10 +35,10 @@
                     </tr>
                 </thead>
                 <tbody style="font-size: 18px">
-                <?php include("../components/modular/menu.php");?>
-                <?php include("../components/modular/menu.php");?>
-                <?php include("../components/modular/menu.php");?>
-                <?php include("../components/modular/menu.php");?>
+                    <?php include("../components/modular/menu.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
                 </tbody>
             </table>
         </div>
