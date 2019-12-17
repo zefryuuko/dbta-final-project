@@ -13,11 +13,11 @@ var db = mysql.createPool({
   database: authInfo["database"]
 });
 
-app.use(
-  basicAuth({
-    users: { username: "password" }
-  })
-);
+// app.use(
+//   basicAuth({
+//     users: { username: "password" }
+//   })
+// );
 
 app.use(express.static("public"));
 
