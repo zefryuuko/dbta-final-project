@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <?php include("../components/navbar_welcome.php"); ?>
+    <?php include("../components/navbar/navbar_welcome.php"); ?>
 
     <div class="card-deck" style="width:1455px; margin-left: 40px; margin-top: 50px">
         <div class="card border-dark mb-3">
@@ -31,7 +31,7 @@
                 <p class="card-text" style="text-align: center;">
                     Click here to make a new order.
                 </p>
-                <a href="#" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">New Order</a>
+                <a href="/staff/new_order.php" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">New Order</a>
             </div>
         </div>
         <div class="card border-dark mb-3">

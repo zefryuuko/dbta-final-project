@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include("../components/navbar_staff.php"); ?>
+    <?php include("../components/navbar/navbar_staff.php"); ?>
 
     <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
         Staff Details

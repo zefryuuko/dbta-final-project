@@ -12,7 +12,7 @@
 
 <body>
 
-    <?php include("../components/navbar_staff.php"); ?>
+    <?php include("../components/navbar/navbar_staff.php"); ?>
 
     <div class="bodyLeft" style="float:left;">
         <nav class="navbar navbar-light" style="width: 650px; float: left; padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;">

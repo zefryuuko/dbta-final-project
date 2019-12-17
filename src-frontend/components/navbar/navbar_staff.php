@@ -13,7 +13,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand" href="#" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a>
+        <a class="navbar-brand" href="/staff/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
