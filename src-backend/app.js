@@ -1,5 +1,6 @@
 var fs = require("fs");
 var express = require("express");
+var basicAuth = require("express-basic-auth");
 var mysql = require("mysql");
 var authInfo = JSON.parse(fs.readFileSync("auth.json"));
 
@@ -11,6 +12,12 @@ var db = mysql.createPool({
   password: authInfo["password"],
   database: authInfo["database"]
 });
+
+app.use(
+  basicAuth({
+    users: { username: "password" }
+  })
+);
 
 app.use(express.static("public"));
 
