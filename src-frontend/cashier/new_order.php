@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include("../components/navbar/navbar_staff.php"); ?>
+    <?php include("../components/navbar/navbar_cashier.php"); ?>
 
     <div class="bodyLeft" style="float:left;">
         <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
@@ -89,9 +89,9 @@
                     </tr>
                 </thead>
                 <tbody style="font-size: 18px">
-                    <?php include("../components/modular/menu_order.php"); ?>
-                    <?php include("../components/modular/menu_order.php"); ?>
-                    <?php include("../components/modular/menu_order.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
                 </tbody>
             </table>
         </div>
