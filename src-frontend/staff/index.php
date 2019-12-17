@@ -17,34 +17,35 @@
         <div class="card border-dark mb-3">
             <img src="/resources/history.svg" class="card-img-top" style="width:80%;
         margin-left:25px;
-        margin-top:10px;" />
+        margin-top:30px;
+        padding:10px;" />
             <div class="card-body">
-                <p class="card-text" style="margin-top: 3px; text-align: center;">
+                <p class="card-text" style="margin-top: 45px; text-align: center;">
                     Click here to view transaction history.
                 </p>
                 <a href="/staff/history.php" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">Transaction History</a>
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/order.svg" class="card-img-top" style="width:87%; margin-left: 25px; margin-top:10px;" />
+            <img src="/resources/order.svg" class="card-img-top" style="width:87%; margin-left: 25px; margin-top: 10px; padding: 10px;" />
             <div class="card-body">
-                <p class="card-text" style="text-align: center;">
+                <p class="card-text" style="text-align: center; margin-top: 45px;">
                     Click here to make a new order.
                 </p>
                 <a href="/staff/new_order.php" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">New Order</a>
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/staff.svg" class="card-img-top" style="width:90%; margin-left:25px;" />
+            <img src="/resources/staff.svg" class="card-img-top" style="width:85%; margin-left:25px; padding:10px;" />
             <div class="card-body">
-                <p class="card-text" style="margin-top: -2px; text-align: center;">
+                <p class="card-text" style="margin-top: 22px; text-align: center;">
                     Click here to see staff details.
                 </p>
                 <a href="/staff/staff_details.php" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">Staff Details</a>
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/menu.svg" class="card-img-top" style="width:80%; margin-left:25px;" />
+            <img src="/resources/menu.svg" class="card-img-top" style="width:75%; margin-left: 40px; padding:10px; margin-top: 30px;" />
             <div class="card-body">
                 <p class="card-text" style="margin-top: 32px; text-align: center;">
                     Click here to see & add item to menu.
