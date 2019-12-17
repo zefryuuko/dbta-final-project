@@ -28,64 +28,10 @@
                 </tr>
             </thead>
             <tbody style="font-size: 18px">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Rp xxx.xxx.xxx</td>
-                    <td>DD/MM/YYYY</td>
-                    <td>
-                        <a href="#"><img src="/resources/view.png" style="width: 13%" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Rp xxx.xxx.xxx</td>
-                    <td>DD/MM/YYYY</td>
-                    <td>
-                        <a href="#"><img src="/resources/view.png" style="width: 13%" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>Rp xxx.xxx.xxx</td>
-                    <td>DD/MM/YYYY</td>
-                    <td>
-                        <a href="#"><img src="/resources/view.png" style="width: 13%" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Mark</td>
-                    <td>Rp xxx.xxx.xxx</td>
-                    <td>DD/MM/YYYY</td>
-                    <td>
-                        <a href="#"><img src="/resources/view.png" style="width: 13%" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Mark</td>
-                    <td>Rp xxx.xxx.xxx</td>
-                    <td>DD/MM/YYYY</td>
-                    <td>
-                        <a href="#"><img src="/resources/view.png" style="width: 13%" /></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th>
-                    <td>Mark</td>
-                    <td>Rp xxx.xxx.xxx</td>
-                    <td>DD/MM/YYYY</td>
-                    <td>
-                        <a href="#"><img src="/resources/view.png" style="width: 13%" /></a>
-                    </td>
-                </tr>
+                <?php include("../components/modular/history.php"); ?>
             </tbody>
         </table>
     </div>
-    <!--Order Table-->
 </body>
 
 </html>

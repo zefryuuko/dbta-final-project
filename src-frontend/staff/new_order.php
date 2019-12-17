@@ -23,7 +23,7 @@
                 <thead class="thead-dark" style="font-size: 20px">
                     <tr>
                         <th scope="col" style="width: 50px">#</th>
-                        <th scope="col" style="width: 150px">Item</th>
+                        <th scope="col" style="width: 100px">Item</th>
                         <th scope="col" style="width: 50px">Quantity</th>
                         <th scope="col" style="width: 90px">Size</th>
                         <th scope="col" style="width: 150px">Price</th>
@@ -32,46 +32,7 @@
                     </tr>
                 </thead>
                 <tbody style="font-size: 18px">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/cross.png" style="width: 33%" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Mark</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/cross.png" style="width: 33%" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Mark</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/cross.png" style="width: 33%" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/cross.png" style="width: 33%" /></a>
-                        </td>
-                    </tr>
+                    <?php include("../components/modular/new_order.php"); ?>
                 </tbody>
             </table>
         </div>
@@ -128,42 +89,9 @@
                     </tr>
                 </thead>
                 <tbody style="font-size: 18px">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/plus.png" style="width: 33%" />
-                                <img src="/resources/minus.png" style="width: 38.8%; padding-left: 4px;" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/plus.png" style="width: 33%" />
-                                <img src="/resources/minus.png" style="width: 38.8%; padding-left: 4px;" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/plus.png" style="width: 33%" />
-                                <img src="/resources/minus.png" style="width: 38.8%; padding-left: 4px;" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                        <td>
-                            <a href="#"><img src="/resources/plus.png" style="width: 33%" />
-                                <img src="/resources/minus.png" style="width: 38.8%; padding-left: 4px;" /></a>
-                        </td>
-                    </tr>
+                    <?php include("../components/modular/menu.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
+                    <?php include("../components/modular/menu.php"); ?>
                 </tbody>
             </table>
         </div>
