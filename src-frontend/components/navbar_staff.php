@@ -3,12 +3,12 @@
         <a class="navbar-brand" href="#">
             <img src="/resources/logo.png" width="85" height="85" class="d-inline-block align-top" alt="" />
         </a>
-        <a class="navbar-brand" href="#" style="font-size:20px; font-weight: bold;">Home</a>
+        <a class="navbar-brand" href="/staff" style="font-size:20px; font-weight: bold;">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand" href="#" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a>
+        <a class="navbar-brand" href="/staff/history.php" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,12 +18,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand" href="#" style="font-size:20px; padding: 10px; font-weight: bold;">Staff Details</a>
+        <a class="navbar-brand" href="/staff/staff_details.php" style="font-size:20px; padding: 10px; font-weight: bold;">Staff Details</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand" href="#" style="font-size:20px; padding: 10px; font-weight: bold;">Menu</a>
+        <a class="navbar-brand" href="/staff/menu.php" style="font-size:20px; padding: 10px; font-weight: bold;">Menu</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
