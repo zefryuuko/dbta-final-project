@@ -21,7 +21,7 @@
                     <p class="card-text" style="text-align: center;">
                         Click here if you are a staff to access all the staff features!
                     </p>
-                    <a href="#" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">Staff</a>
+                    <a href="/staff" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">Staff</a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     <p class="card-text" style="text-align: center;">
                     Click here if you are a cashier to acces all the cashier features!
                     </p>
-                    <a href="#" class="btn btn-primary" style="width: 100%; background-color: #006335;  border-color: #006335; font-weight: bold;">Cashier</a>
+                    <a href="/cashier" class="btn btn-primary" style="width: 100%; background-color: #006335;  border-color: #006335; font-weight: bold;">Cashier</a>
                 </div>
             </div>
         </div>
