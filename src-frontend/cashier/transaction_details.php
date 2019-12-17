@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include("../components/navbar/navbar_staff.php"); ?>
+    <?php include("../components/navbar/navbar_cashier.php"); ?>
 
     <div class="bodyLeft" style="float:left;">
         <p style="font-size:20px; padding-left:10px; margin-left: 45px; margin-top:5px;">

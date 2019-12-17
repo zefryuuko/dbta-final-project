@@ -26,18 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                </tr>
-                <tr>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-                <tr>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                </tr>
+                <tr><?php include("../components/modular/staff_details.php"); ?>
             </tbody>
         </table>
     </div>
