@@ -14,29 +14,29 @@
 <body>
     <?php include("components/navbar.php");?>
     <div class="row">
-    <div class="col-sm-6">
-      <div class="card border-dark mb-3" style="width: 20rem; margin: 50px 120px 10px auto; padding: 20px  ;">
-        <img src="../Images/staff.png" class="card-img-top" style="width:80%; margin-left:25px;" />
-        <div class="card-body">
-          <p class="card-text" style="text-align: center;">
-            Click here if you are a staff to access all the staff features!
-          </p>
-          <a href="#" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">Staff</a>
+        <div class="col-sm-6">
+            <div class="card border-dark mb-3" style="width: 20rem; margin: 50px 120px 10px auto; padding: 20px  ;">
+                <img src="/resources/staff.png" class="card-img-top" style="width:80%; margin-left:25px;" />
+                <div class="card-body">
+                    <p class="card-text" style="text-align: center;">
+                        Click here if you are a staff to access all the staff features!
+                    </p>
+                    <a href="#" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">Staff</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card border-dark mb-3" style="width: 20rem; margin: 50px auto 10px 120px; padding: 20px  ;">
-        <img src="../Images/cashier.png" class="card-img-top" style="width:80%; margin-left:25px;" />
-        <div class="card-body">
-          <p class="card-text" style="text-align: center;">
-            Click here if you are a cashier to acces all the cashier features!
-          </p>
-          <a href="#" class="btn btn-primary" style="width: 100%; background-color: #006335;  border-color: #006335; font-weight: bold;">Cashier</a>
+        <div class="col-sm-6">
+            <div class="card border-dark mb-3" style="width: 20rem; margin: 50px auto 10px 120px; padding: 20px  ;">
+                <img src="/resources/cashier.png" class="card-img-top" style="width:80%; margin-left:25px;" />
+                <div class="card-body">
+                    <p class="card-text" style="text-align: center;">
+                    Click here if you are a cashier to acces all the cashier features!
+                    </p>
+                    <a href="#" class="btn btn-primary" style="width: 100%; background-color: #006335;  border-color: #006335; font-weight: bold;">Cashier</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
   <!--Card-->
 </body>
 </html>
