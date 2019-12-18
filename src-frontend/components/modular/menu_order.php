@@ -3,7 +3,8 @@
     <td>Mark</td>
     <td>Rp xxx.xxx.xxx</td>
     <td>
-        <a href="#"><img src="/resources/plus.png" style="width: 33%" />
-            <img src="/resources/minus.png" style="width: 38.8%; padding-left: 4px;" /></a>
+        <a href="#">
+            <img src="/resources/plus.svg" style="width: 33%" />
+            <img src="/resources/minus.svg" style="width: 38.8%; padding-left: 4px;" /></a>
     </td>
 </tr>

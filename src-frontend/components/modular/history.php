@@ -4,6 +4,6 @@
     <td>Rp xxx.xxx.xxx</td>
     <td>DD/MM/YYYY</td>
     <td>
-        <a href="#"><img src="/resources/view.png" style="width: 13%" /></a>
+        <a href="/cashier/transaction_details.php"><img src="/resources/view.svg" style="width: 22%" /></a>
     </td>
 </tr>

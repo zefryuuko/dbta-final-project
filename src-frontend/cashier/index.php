@@ -10,21 +10,21 @@
     <?php include("../components/bootstrap.php"); ?>
 
 <body>
-    <?php include("../components/navbar/navbar_cashier.php"); ?>
+    <?php include("../components/navbar/navbar_welcome.php"); ?>
     <div class="card-deck" style="width:800px; margin-left: 350px; margin-top: 50px">
         <div class="card border-dark mb-3">
-            <img src="/resources/history.jpg" class="card-img-top" style="width:80%;
-        margin-left:25px;
-        margin-top:10px;" />
+            <img src="/resources/history.svg" class="card-img-top" style="width:70%;
+        margin-left:60px;
+        margin-top:30px;" />
             <div class="card-body">
-                <p class="card-text" style="margin-top: 12px; text-align: center;">
+                <p class="card-text" style="margin-top: 15px; text-align: center;">
                     Click here to view transaction history.
                 </p>
                 <a href="/cashier/history.php" class="btn btn-primary" style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;">Transaction History</a>
             </div>
         </div>
         <div class="card border-dark mb-3">
-            <img src="/resources/order.png" class="card-img-top" style="width:89%; margin-left: 25px; margin-top:10px;" />
+            <img src="/resources/order.svg" class="card-img-top" style="width:80%; margin-left: 45px; margin-top:10px;" />
             <div class="card-body">
                 <p class="card-text" style="text-align: center;">
                     Click here to make a new order.
