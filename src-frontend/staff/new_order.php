@@ -57,13 +57,13 @@
         </div>
         <!--Subtotal table-->
 
-        <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; width: 60%">
+        <a type="button" href="/staff/checkout.php" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; width: 60%">
             Close Order
-        </button>
+        </a>
 
-        <button type="button" class="btn btn-danger btn-primary btn-lg" style="margin-left: 30px; width: 27.2%">
+        <a type="button" href="/staff/index.php" class="btn btn-danger btn-primary btn-lg" style="margin-left: 30px; width: 27.2%">
             Cancel Order
-        </button>
+        </a>
     </div>
     <!--End of Left Body-->
 

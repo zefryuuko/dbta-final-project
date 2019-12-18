@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" style="width: 650px; float: left; margin-right: 70px; margin-top: 200px;">
+    <table class="table" style="width: 650px; float: left; margin-right: 70px; margin-top: 170px;">
         <thead class="thead-dark">
             <tr>
                 <th scope="col" style="width: 340px; font-size: 22px; font-weight: bold;">

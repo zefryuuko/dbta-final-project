@@ -5,14 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="../Images/starbucks favicon.png" rel="shortcut icon" />
+    <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include("../components/bootstrap.php"); ?>
 </head>
 
 <body>
     <?php include("../components/navbar/navbar_staff.php"); ?>
-
 
     <div class="bodyLeft" style="float: left;">
         <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
@@ -31,6 +30,9 @@
                 </thead>
                 <tbody style="font-size: 18px">
                     <?php include("../components/modular/order_checkout.php"); ?>
+                    <?php include("../components/modular/order_checkout.php"); ?>
+                    <?php include("../components/modular/order_checkout.php"); ?>
+                    <?php include("../components/modular/order_checkout.php"); ?>
                 </tbody>
             </table>
         </div>
@@ -44,26 +46,24 @@
 
     <div class="bodyRight" style="float: right;">
         <?php include("../components/modular/total_purchase.php"); ?>
+        <!--Subtotal table-->
+
+        <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 42.8%; margin-top: 20px;">
+            Discounts
+        </button>
+
+        <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 30px; width: 42.8%; margin-top: 20px;">
+            Pay Bill
+        </button>
+
+        <button type="button" class="btn btn-danger btn-primary btn-lg" style="width: 42.8%; margin-top: 80px;">
+            Cancel Order
+        </button>
+
+        <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 30px; width: 42.8%; margin-top: 80px;">
+            Done
+        </button>
     </div>
-    <!--Subtotal table-->
-
-    <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 42.8%; margin-top: 20px;">
-        Discounts
-    </button>
-
-    <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 30px; width: 42.8%; margin-top: 20px;">
-        Pay Bill
-    </button>
-
-    <button type="button" class="btn btn-danger btn-primary btn-lg" style="width: 42.8%; margin-top: 80px;">
-        Cancel Order
-    </button>
-
-    <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 30px; width: 42.8%; margin-top: 80px;">
-        Done
-    </button>
-    </div>
-    <!--End of Right Body-->
 </body>
 
 </html>
