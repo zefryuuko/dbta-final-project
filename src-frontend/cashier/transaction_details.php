@@ -25,44 +25,25 @@
             <table class="table" style="width: 650px; float: left; margin-left: 55px; margin-top:20px;">
                 <thead class="thead-dark" style="font-size: 20px">
                     <tr>
-                        <th scope="col" style="width: 200px">Transaction ID</th>
-                        <th scope="col" style="width: 100px">Item</th>
-                        <th scope="col" style="width: 150px">Quantity</th>
-                        <th scope="col">Price</th>
+                        <th scope="col" style="width: 50px">#</th>
+                        <th scope="col" style="width: 150px">Item</th>
+                        <th scope="col" style="width: 50px">Quantity</th>
+                        <th scope="col" style="width: 90px">Size</th>
+                        <th scope="col" style="width: 150px">Price</th>
                     </tr>
                 </thead>
                 <tbody style="font-size: 18px">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>xx</td>
-                        <td>Rp xxx.xxx.xxx</td>
-                    </tr>
+                    <?php include("../components/modular/order_checkout.php"); ?>
+                    <?php include("../components/modular/order_checkout.php"); ?>
+                    <?php include("../components/modular/order_checkout.php"); ?>
+                    <?php include("../components/modular/order_checkout.php"); ?>
                 </tbody>
             </table>
         </div>
         <!--Order Table-->
-        <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; margin-top:110px; width: 60%">
+        <a type="button" href="/cashier/history.php" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; margin-top:110px; width: 60%">
             Back
-        </button>
+        </a>
     </div>
     <!--End of Left Body-->
 
