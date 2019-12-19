@@ -11,7 +11,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="/resources/avatar.svg" width="40" height="40" class="rounded-circle">
                 </a>
-                <div class="dropdown-menu" style="margin-right: 50px !important" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu" style=" width: 10px !important;" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="index.php">Log Out</a>
                 </div>
             </li>
