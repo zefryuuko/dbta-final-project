@@ -31,12 +31,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav"></ul>
         </div>
-        <a class="navbar-brand" href="#" style="margin-right:30px; margin-top: 10px;">
-            <img src="/resources/avatar.svg" width="40" height="40" class="d-inline-block align-top" alt="" />
-            <p style="float: right; padding: 5px; margin-top: 5px; font-size: 15px;">
-                Welcome back, Zef!
-            </p>
-        </a>
+        <ul class="navbar-nav" style="float: right;">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="/resources/avatar.svg" width="40" height="40" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu" style="margin-right: 50px !important" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="index.php">Log Out</a>
+                </div>
+            </li>
+        </ul>
     </nav>
 </header>
 <!--End of Header-->
