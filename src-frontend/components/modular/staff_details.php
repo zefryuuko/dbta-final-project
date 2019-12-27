@@ -13,7 +13,6 @@ function generateTableBody($currentPage = 1)
 function generatePagination($currentPage = 1)
 {
     global $showCount;
-    $staffs = getStaffs($currentPage);
     if ($currentPage == 1)
     {
         echo "<li class='page-item disabled'><a class='page-link' href='#' tabindex='-1'>Back</a></li>";
