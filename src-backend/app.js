@@ -8,6 +8,7 @@ const authInfo = JSON.parse(fs.readFileSync("auth.json"));
 const Staff = require("./staff");
 const Item = require("./item");
 const Discount = require("./discount");
+const Branch = require("./branch");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,6 +30,7 @@ var db = mysql.createPool({
 const staff = new Staff(db);
 const item = new Item(db);
 const discount = new Discount(db);
+const Branch = new Branch(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -144,12 +146,6 @@ app.delete("/item", (req, res) => {
   });
 });
 
-var server = app.listen(8081, () => {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log("Server running at http://%s:%s", host, port);
-});
-
 // Discount Routes
 app.get("/discount", (req, res) => {
   if (req.query.id != undefined) {
@@ -204,4 +200,10 @@ app.delete("/discount", (req, res) => {
   discount.removeDiscount(req.body.id, result => {
     res.send(result);
   });
+});
+
+var server = app.listen(8081, () => {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log("Server running at http://%s:%s", host, port);
 });
