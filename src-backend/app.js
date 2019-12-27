@@ -30,7 +30,7 @@ var db = mysql.createPool({
 const staff = new Staff(db);
 const item = new Item(db);
 const discount = new Discount(db);
-const Branch = new Branch(db);
+const branch = new Branch(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -198,6 +198,57 @@ app.delete("/discount", (req, res) => {
     res.send({ status: "failed", message: "missing id parameter." });
 
   discount.removeDiscount(req.body.id, result => {
+    res.send(result);
+  });
+});
+
+// Branch Routes
+app.get("/branch", (req, res) => {
+  if (req.query.id != undefined) {
+    branch.getBranchByID(req.query.id, result => {
+      res.send(result);
+    });
+  } else if (req.query.name != undefined) {
+    branch.getBranchByName(
+      req.query.name,
+      req.query.count,
+      req.query.page,
+      result => {
+        res.send(result);
+      }
+    );
+  } else {
+    branch.getBranches(req.query.count, req.query.page, result => {
+      res.send(result);
+    });
+  }
+});
+
+app.post("/branch", (req, res) => {
+  if (req.body.task == undefined)
+    res.send({ status: "failed", message: "missing task parameter." });
+  else if (req.body.name == undefined)
+    res.send({ status: "failed", message: "missing name parameter." });
+  else if (req.body.phone == undefined)
+    res.send({ status: "failed", message: "missing phone parameter." });
+  else if (req.body.task == "add") {
+    branch.addBranch(req.body.name, req.body.phone, result => {
+      res.send(result);
+    });
+  } else if (req.body.task == "update") {
+    if (req.body.id == undefined)
+      res.send({ status: "failed", message: "missing id parameter." });
+    branch.updateBranch(req.body.id, req.body.name, req.body.phone, result => {
+      res.send(result);
+    });
+  }
+});
+
+app.delete("/branch", (req, res) => {
+  if (req.body.id == undefined)
+    res.send({ status: "failed", message: "missing id parameter." });
+
+  branch.removeBranch(req.body.id, result => {
     res.send(result);
   });
 });
