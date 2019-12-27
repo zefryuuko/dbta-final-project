@@ -6,7 +6,7 @@ function generateTableBody($currentPage = 1)
     $staffs = getStaffs($currentPage);
     foreach ($staffs as $staff)
     {
-        echo "<tr><td>".$staff["staff_id"]."</td><td>".$staff["staff_name"]."</td><td>".(($staff["staff_level"] == 0 ? "Admin" : "Cashier"))."</td><td>Edit, Delete (add btn pls)</td>";
+        echo "<tr><td>".$staff["staff_id"]."</td><td>".$staff["staff_name"]."</td><td>".(($staff["staff_level"] == 0 ? "Admin" : "Cashier"))."</td><td><button type=\"button\" class=\"btn btn-secondary\" style=\"margin-right: 5px;\">E</button><button type=\"button\" class=\"btn btn-danger\">X</button></td>";
     }
 }
 
