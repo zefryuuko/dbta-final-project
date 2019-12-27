@@ -32,3 +32,6 @@ function callAPI($method, $url, $data = false)
 
     return $result;
 }
+
+# Source:
+# https://stackoverflow.com/questions/9802788/call-a-rest-api-in-php
