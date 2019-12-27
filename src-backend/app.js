@@ -6,6 +6,7 @@ const mysql = require("mysql");
 const authInfo = JSON.parse(fs.readFileSync("auth.json"));
 
 const Staff = require("./staff.js");
+const Item = require("./item.js");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,7 +25,8 @@ var db = mysql.createPool({
   database: authInfo["database"]
 });
 
-var staff = new Staff(db);
+const staff = new Staff(db);
+const item = new Item(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -81,10 +83,26 @@ app.delete("/staff", (req, res) => {
   });
 });
 
-app.get("/bills", (req, res) => {
-  db.query("SELECT * FROM Bill", (err, result, fields) => {
-    res.send(result);
-  });
+// Item Routes
+app.get("/item", (req, res) => {
+  if (req.query.id != undefined) {
+    item.getItemByID(req.query.id, result => {
+      res.send(result);
+    });
+  } else if (req.query.name != undefined) {
+    staff.getItemByName(
+      req.query.name,
+      req.query.count,
+      req.query.page,
+      result => {
+        res.send(result);
+      }
+    );
+  } else {
+    item.getItems(req.query.count, req.query.page, result => {
+      res.send(result);
+    });
+  }
 });
 
 var server = app.listen(8081, () => {
