@@ -1,10 +1,19 @@
-var fs = require("fs");
-var express = require("express");
-var basicAuth = require("express-basic-auth");
-var mysql = require("mysql");
-var authInfo = JSON.parse(fs.readFileSync("auth.json"));
+const fs = require("fs");
+const express = require("express");
+const basicAuth = require("express-basic-auth");
+const mysql = require("mysql");
+const authInfo = JSON.parse(fs.readFileSync("auth.json"));
+
+const Staff = require("./staff.js");
 
 var app = express();
+// app.use(
+//   basicAuth({
+//     users: { username: "password" }
+//   })
+// );
+app.use(express.static("public"));
+
 var db = mysql.createPool({
   connectionLimit: 1,
   host: authInfo["host"],
@@ -13,30 +22,36 @@ var db = mysql.createPool({
   database: authInfo["database"]
 });
 
-// app.use(
-//   basicAuth({
-//     users: { username: "password" }
-//   })
-// );
-
-app.use(express.static("public"));
+var staff = new Staff(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+// Staff Routes
 app.get("/staff", (req, res) => {
-  request = {
-    id: req.query.id == undefined ? "%" : req.query.id,
-    name: req.query.name == undefined ? "%" : req.query.name
-  };
-
-  db.query(
-    `SELECT * FROM Staff WHERE staff_name LIKE '${request["name"]}' AND staff_id LIKE '${request["id"]}'`,
-    (err, result, fields) => {
+  if (req.query.id != undefined) {
+    staff.getStaffByID(req.query.id, result => {
       res.send(result);
-    }
-  );
+    });
+  } else if (req.query.name != undefined) {
+    staff.getStaffByName(
+      req.query.name,
+      req.query.count,
+      req.query.page,
+      result => {
+        res.send(result);
+      }
+    );
+  } else {
+    staff.getStaffs(req.query.count, req.query.page, result => {
+      res.send(result);
+    });
+  }
+});
+
+app.post("/staff", (req, res) => {
+  //
 });
 
 app.get("/bills", (req, res) => {
