@@ -9,7 +9,11 @@ class Staff {
       "INSERT INTO Staff (staff_name, staff_level) VALUES (?, ?)",
       [name, level],
       (err, result, fields) => {
-        callback(result);
+        if (result.affectedRows > 0) {
+          callback({ status: "success" });
+        } else {
+          callback({ status: "failed", message: result.message });
+        }
       }
     );
   }
