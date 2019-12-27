@@ -41,7 +41,7 @@
             </table>
         </div>
         <!--Order Table-->
-        <a type="button" href="/cashier/history.php" class=" btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; margin-top:110px; width: 60%">
+        <a type="button" href="/staff/history.php" class=" btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; margin-top:110px; width: 60%">
             Back
         </a>
     </div>
