@@ -9,6 +9,7 @@ const Staff = require("./staff");
 const Item = require("./item");
 const Discount = require("./discount");
 const Branch = require("./branch");
+const Card = require("./card");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,6 +32,7 @@ const staff = new Staff(db);
 const item = new Item(db);
 const discount = new Discount(db);
 const branch = new Branch(db);
+const card = new Card(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -249,6 +251,63 @@ app.delete("/branch", (req, res) => {
     res.send({ status: "failed", message: "missing id parameter." });
 
   branch.removeBranch(req.body.id, result => {
+    res.send(result);
+  });
+});
+
+// Card Routes
+app.get("/card", (req, res) => {
+  if (req.query.no != undefined) {
+    card.getCardByNo(req.query.no, result => {
+      res.send(result);
+    });
+  } else if (req.query.name != undefined) {
+    card.getCardByCardholderName(
+      req.query.name,
+      req.query.count,
+      req.query.page,
+      result => {
+        res.send(result);
+      }
+    );
+  } else {
+    card.getCards(req.query.count, req.query.page, result => {
+      res.send(result);
+    });
+  }
+});
+
+app.post("/card", (req, res) => {
+  if (req.body.task == undefined)
+    res.send({ status: "failed", message: "missing task parameter." });
+  else if (req.body.balance == undefined)
+    res.send({ status: "failed", message: "missing balance parameter." });
+  else if (req.body.task == "add") {
+    card.addCard(req.body.no, req.body.name, req.body.balance, result => {
+      res.send(result);
+    });
+  } else if (req.body.task == "update") {
+    if (req.body.id == undefined)
+      res.send({ status: "failed", message: "missing no parameter." });
+    if (req.body.name == undefined)
+      res.send({ status: "failed", message: "missing name parameter." });
+    card.updateCard(req.body.no, req.body.name, req.body.balance, result => {
+      res.send(result);
+    });
+  } else if (req.body.task == "topup") {
+    if (req.body.id == undefined)
+      res.send({ status: "failed", message: "missing id parameter." });
+    card.topUpBalance(req.body.no, req.body.balance, result => {
+      res.send(result);
+    });
+  }
+});
+
+app.delete("/card", (req, res) => {
+  if (req.body.no == undefined)
+    res.send({ status: "failed", message: "missing no parameter." });
+
+  card.removeCard(req.body.no, result => {
     res.send(result);
   });
 });
