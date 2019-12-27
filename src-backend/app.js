@@ -73,7 +73,12 @@ app.post("/staff", (req, res) => {
 });
 
 app.delete("/staff", (req, res) => {
-  //
+  if (req.body.id == undefined)
+    res.send({ status: "failed", message: "missing id parameter." });
+
+  staff.removeStaff(req.body.id, result => {
+    res.send(result);
+  });
 });
 
 app.get("/bills", (req, res) => {
