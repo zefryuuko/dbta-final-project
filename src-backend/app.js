@@ -5,8 +5,9 @@ const basicAuth = require("express-basic-auth");
 const mysql = require("mysql");
 const authInfo = JSON.parse(fs.readFileSync("auth.json"));
 
-const Staff = require("./staff.js");
-const Item = require("./item.js");
+const Staff = require("./staff");
+const Item = require("./item");
+const Discount = require("./discount");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
