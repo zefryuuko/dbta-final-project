@@ -22,7 +22,7 @@ class Staff {
   getStaffs(count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      `SELECT * FROM Staff WHERE staff_id LIMIT ${start}, ${count}`,
+      `SELECT * FROM Staff LIMIT ${start}, ${count}`,
       (err, result, fields) => {
         callback(result);
       }
