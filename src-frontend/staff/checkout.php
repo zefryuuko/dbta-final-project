@@ -15,18 +15,18 @@
         <?php include("../components/navbar/navbar_staff.php"); ?>
 
         <div class="bodyLeft" style="float: left;">
-            <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
+            <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 35px; margin-top:20px;">
                 Current Transaction
             </p>
             <div class="table-responsive">
-                <table class="table" style="width: 650px; float: left; margin-left: 55px;">
+                <table class="table" style="width: 550px; float: left; margin-left: 45px;">
                     <thead class="thead-dark" style="font-size: 20px">
                         <tr>
-                            <th scope="col" style="width: 50px">#</th>
-                            <th scope="col" style="width: 150px">Item</th>
+                            <th scope="col" style="width: 40px">#</th>
+                            <th scope="col" style="width: 80px">Item</th>
                             <th scope="col" style="width: 50px">Quantity</th>
-                            <th scope="col" style="width: 90px">Size</th>
-                            <th scope="col" style="width: 150px">Price</th>
+                            <th scope="col" style="width: 70px">Size</th>
+                            <th scope="col" style="width: 140px">Price</th>
                         </tr>
                     </thead>
                     <tbody style="font-size: 18px">
@@ -39,13 +39,13 @@
             </div>
             <!--Order Table-->
 
-            <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; width: 40%; margin-top: 135px;">
+            <a type="button" href="/staff/new_order.php" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 45px; width: 40%; margin-top: 135px;">
                 Back
-            </button>
+            </a>
         </div>
         <!--End of Left Body-->
 
-        <div class="bodyRight" style="float: right;">
+        <div class="bodyRight" style="float: right; margin-right: -40px;">
             <?php include("../components/modular/total_purchase.php"); ?>
             <!--Subtotal table-->
 

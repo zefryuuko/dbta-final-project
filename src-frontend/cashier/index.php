@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <?php include("../components/navbar/navbar_welcome.php"); ?>
-        <div class="card-deck" style="width:800px; margin-left: 350px; margin-top: 50px">
+        <div class="card-deck" style="width:100%; margin: 50px auto auto auto;">
             <div class="card border-dark mb-3">
                 <img src="/resources/history.svg" class="card-img-top" style="width:70%;
             margin-left:60px;

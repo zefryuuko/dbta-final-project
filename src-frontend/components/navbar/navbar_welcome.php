@@ -20,9 +20,8 @@
 </header>
 <!--End of Header-->
 
-<div class="box" style="width: 1425px;
+<div class="box" style="width: 100%;
       height: 5px;
-      margin: 15px auto auto auto;
       background-color: #006335;
-      border-radius: 5px;">
-</div>
+      border-radius: 5px;"></div>
+<!--Border Line-->
