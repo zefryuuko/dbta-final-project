@@ -28,6 +28,7 @@ var db = mysql.createPool({
 
 const staff = new Staff(db);
 const item = new Item(db);
+const discount = new Discount(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -147,4 +148,60 @@ var server = app.listen(8081, () => {
   var host = server.address().address;
   var port = server.address().port;
   console.log("Server running at http://%s:%s", host, port);
+});
+
+// Discount Routes
+app.get("/discount", (req, res) => {
+  if (req.query.id != undefined) {
+    discount.getDiscountByID(req.query.id, result => {
+      res.send(result);
+    });
+  } else if (req.query.name != undefined) {
+    discount.getDiscountByName(
+      req.query.name,
+      req.query.count,
+      req.query.page,
+      result => {
+        res.send(result);
+      }
+    );
+  } else {
+    discount.getDiscounts(req.query.count, req.query.page, result => {
+      res.send(result);
+    });
+  }
+});
+
+app.post("/discount", (req, res) => {
+  if (req.body.task == undefined)
+    res.send({ status: "failed", message: "missing task parameter." });
+  else if (req.body.name == undefined)
+    res.send({ status: "failed", message: "missing name parameter." });
+  else if (req.body.percentage == undefined)
+    res.send({ status: "failed", message: "missing percentage parameter." });
+  else if (req.body.task == "add") {
+    discount.addDiscount(req.body.name, req.body.percentage, result => {
+      res.send(result);
+    });
+  } else if (req.body.task == "update") {
+    if (req.body.id == undefined)
+      res.send({ status: "failed", message: "missing id parameter." });
+    staff.updateStaff(
+      req.body.id,
+      req.body.name,
+      req.body.percentage,
+      result => {
+        res.send(result);
+      }
+    );
+  }
+});
+
+app.delete("/discount", (req, res) => {
+  if (req.body.id == undefined)
+    res.send({ status: "failed", message: "missing id parameter." });
+
+  discount.removeDiscount(req.body.id, result => {
+    res.send(result);
+  });
 });
