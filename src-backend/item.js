@@ -22,7 +22,7 @@ class Item {
   getItems(count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      "SELECT * FROM Items ORDER BY item_name ASC, item_size ASC LIMIT ?, ?",
+      `SELECT * FROM Items ORDER BY item_name ASC, item_size ASC LIMIT ${start}, ${count}`,
       [start, count],
       (err, result, fields) => {
         callback(result);
@@ -43,8 +43,8 @@ class Item {
   getItemByName(name, count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      "SELECT * FROM Items WHERE item_name LIKE ? LIMIT ?, ?",
-      ["%" + name + "%", start, count],
+      `SELECT * FROM Items WHERE item_name LIKE ? LIMIT ${start}, ${count}`,
+      ["%" + name + "%"],
       (err, result, fields) => {
         callback(result);
       }

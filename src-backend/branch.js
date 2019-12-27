@@ -22,8 +22,7 @@ class Branch {
   getBranches(count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      "SELECT * FROM Branch LIMIT ?, ?",
-      [start, count],
+      `SELECT * FROM Branch LIMIT ${start}, ${count}`,
       (err, result, fields) => {
         callback(result);
       }
@@ -43,8 +42,8 @@ class Branch {
   getBranchByName(name, count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      "SELECT * FROM Branch WHERE branch_name LIKE ? LIMIT ?, ?",
-      ["%" + name + "%", start, count],
+      `SELECT * FROM Branch WHERE branch_name LIKE ? LIMIT ${start}, ${count}`,
+      ["%" + name + "%"],
       (err, result, fields) => {
         callback(result);
       }
