@@ -3,35 +3,24 @@
         <a class="navbar-brand" href="#">
             <img src="/resources/logo.png" width="85" height="85" class="d-inline-block align-top" alt="" />
         </a>
-        <a class="navbar-brand" href="/staff" style="font-size:20px; font-weight: bold;">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <a class="navbar-brand" href="/staff/history.php" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <a class="navbar-brand" href="/staff/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <a class="navbar-brand" href="/staff/staff_details.php" style="font-size:20px; padding: 10px; font-weight: bold;">Staff Details</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <a class="navbar-brand" href="/staff/menu.php" style="font-size:20px; padding: 10px; font-weight: bold;">Menu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav"></ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/staff" style="font-size:20px; padding: 10px; font-weight: bold;">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/history.php" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/staff_details.php" style="font-size:20px; padding: 10px; font-weight: bold;">Staff Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/menu.php" style="font-size:20px; padding: 10px; font-weight: bold;">Menu</a></li>
+            </ul>
         </div>
-        <ul class="navbar-nav" style="float: right;">
+
+        <!-- <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav"></ul>
+        </div> -->
+        
+        <!-- <ul class="navbar-nav" style="float: right;">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="/resources/avatar.svg" width="40" height="40" class="rounded-circle">
@@ -40,7 +29,7 @@
                     <a class="dropdown-item" href="index.php">Log Out</a>
                 </div>
             </li>
-        </ul>
+        </ul> -->
     </nav>
 </header>
 <!--End of Header-->
