@@ -23,18 +23,17 @@
             </p>
 
             <div class="table-responsive">
-                <table class="table" style="width: 650px; float: left; margin-left: 55px; margin-top:20px;">
+            <table class="table" style="width: 520px; float: left; margin-left: 55px; margin-top:20px;">
                     <thead class="thead-dark" style="font-size: 20px">
                         <tr>
                             <th scope="col" style="width: 50px">#</th>
-                            <th scope="col" style="width: 150px">Item</th>
+                            <th scope="col" style="width: 100px">Item</th>
                             <th scope="col" style="width: 50px">Quantity</th>
-                            <th scope="col" style="width: 90px">Size</th>
-                            <th scope="col" style="width: 150px">Price</th>
+                            <th scope="col" style="width: 70px">Size</th>
+                            <th scope="col" style="width: 250px">Price</th>
                         </tr>
                     </thead>
                     <tbody style="font-size: 18px">
-                        <?php include("../components/modular/order_checkout.php"); ?>
                         <?php include("../components/modular/order_checkout.php"); ?>
                         <?php include("../components/modular/order_checkout.php"); ?>
                         <?php include("../components/modular/order_checkout.php"); ?>

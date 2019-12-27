@@ -16,7 +16,7 @@
         <div class="bodyLeft" style="float:left;">
             <nav class="navbar navbar-light" style="width: 650px; float: left; padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;">
                 <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Items</a>
-                <form class="form-inline" style="margin-top: 10px;">
+                <form class="form-inline" style="margin-top: 10px; margin-right: 80px;">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-light btn-outline-dark my-2 my-sm-0" type="submit">
                         Search
@@ -25,13 +25,13 @@
             </nav>
 
             <div class="table-responsive">
-                <table class="table" style="width: 800px; float: left; margin-left: 55px;">
+                <table class="table" style="width: 550px; float: left; margin-left: 55px;">
                     <thead class="thead-dark" style="font-size: 20px">
                         <tr>
-                            <th scope="col" style="width: 150px">Item ID</th>
-                            <th scope="col" style="width: 150px">Item</th>
-                            <th scope="col" style="width: 150px">Size</th>
-                            <th scope="col" style="width: 250px;">Price</th>
+                            <th scope="col" style="width: 100px">Item ID</th>
+                            <th scope="col" style="width: 100px">Item</th>
+                            <th scope="col" style="width: 100px">Size</th>
+                            <th scope="col" style="width: 170px;">Price</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="bodyRight" style="float: right;">
+        <div class="bodyRight" style="float: right; margin-right: -120px; margin-top: 30px;">
             <div class="box" style="width: 400px;
                 height: 450px;
                 padding: 40px;

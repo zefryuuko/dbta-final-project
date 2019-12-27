@@ -14,7 +14,7 @@
     <div class="container">
         <?php include("../components/navbar/navbar_welcome.php"); ?>
 
-        <div class="card-deck" style="width:1455px; margin-left: 40px; margin-top: 50px">
+        <div class="card-deck" style="width: 100%; margin: 50px auto auto auto;">
             <div class="card border-dark mb-3">
                 <img src="/resources/history.svg" class="card-img-top" style="width:80%;
             margin-left:25px;
