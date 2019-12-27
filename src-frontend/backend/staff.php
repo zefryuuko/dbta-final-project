@@ -1,9 +1,12 @@
 <?php
 include("curl.php");
 
-function getStaffs()
+$showCount = 5;
+
+function getStaffs($page = 1)
 {
-    $raw_data = callAPI("GET", "http://localhost:8081/staff");
+    global $showCount;
+    $raw_data = callAPI("GET", "http://localhost:8081/staff?count=".$showCount."&page=".$page);
     return json_decode($raw_data, true);
 }
 
@@ -19,4 +22,12 @@ function getStaffByName($name)
     return json_decode($raw_data, true);
 }
 
-print_r(getStaffByName("Jotika")[0]);
+function addStaff($name)
+{
+
+}
+
+function setStaffStatus($id, $status)
+{
+    
+}
