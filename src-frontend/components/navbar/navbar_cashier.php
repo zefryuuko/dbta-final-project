@@ -1,24 +1,20 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
             <img src="/resources/logo.png" width="85" height="85" class="d-inline-block align-top" alt="" />
         </a>
-        <a class="navbar-brand" href="/cashier/index.php" style="font-size:20px; font-weight: bold;">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/cashier" style="font-size:20px; padding: 10px; font-weight: bold;">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cashier/history.php" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cashier/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a></li>
+            </ul>
+        </div>
 
-        <a class="navbar-brand" href="/cashier/history.php" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <a class="navbar-brand" href="/cashier/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav"></ul>
         </div>
         <ul class="navbar-nav" style="float: right;">
@@ -30,7 +26,7 @@
                     <a class="dropdown-item" href="index.php">Log Out</a>
                 </div>
             </li>
-        </ul>
+        </ul> -->
     </nav>
 </header>
 <!--End of Header-->
