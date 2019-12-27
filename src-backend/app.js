@@ -105,6 +105,43 @@ app.get("/item", (req, res) => {
   }
 });
 
+app.post("/item", (req, res) => {
+  if (req.body.task == undefined)
+    res.send({ status: "failed", message: "missing task parameter." });
+  else if (req.body.name == undefined)
+    res.send({ status: "failed", message: "missing name parameter." });
+  else if (req.body.size == undefined)
+    res.send({ status: "failed", message: "missing size parameter." });
+  else if (req.body.price == undefined)
+    res.send({ status: "failed", message: "missing price parameter." });
+  else if (req.body.task == "add") {
+    item.addItem(req.body.name, req.body.size, req.body.price, result => {
+      res.send(result);
+    });
+  } else if (req.body.task == "update") {
+    if (req.body.id == undefined)
+      res.send({ status: "failed", message: "missing id parameter." });
+    item.updateItem(
+      req.body.id,
+      req.body.name,
+      req.body.size,
+      req.body.price,
+      result => {
+        res.send(result);
+      }
+    );
+  }
+});
+
+app.delete("/item", (req, res) => {
+  if (req.body.id == undefined)
+    res.send({ status: "failed", message: "missing id parameter." });
+
+  item.removeItem(req.body.id, result => {
+    res.send(result);
+  });
+});
+
 var server = app.listen(8081, () => {
   var host = server.address().address;
   var port = server.address().port;
