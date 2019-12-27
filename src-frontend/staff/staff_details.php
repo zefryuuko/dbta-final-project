@@ -1,3 +1,4 @@
+<?php include("../components/modular/staff_details.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,23 +13,29 @@
 </head>
 
 <body>
+    <div class="container">
     <?php include("../components/navbar/navbar_staff.php"); ?>
-
-    <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
-        Staff Details
-    </p>
-    <div class="table-responsive">
-        <table class="table" style="width: 1200px; margin:  40px auto;">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Staff ID</th>
-                    <th scope="col">Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><?php include("../components/modular/staff_details.php"); ?>
-            </tbody>
-        </table>
+        <h2 style="margin:10pt 0 10pt 0;">Staff Details</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Staff ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><?php generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1)?>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <?php generatePagination(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
+            </ul>
+        </nav>
     </div>
 </body>
 
