@@ -11,6 +11,7 @@
                 <li class="nav-item"><a class="nav-link" href="/cashier" style="font-size:20px; padding: 10px; font-weight: bold;">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/cashier/history.php" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a></li>
                 <li class="nav-item"><a class="nav-link" href="/cashier/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cashier/membership.php" style="font-size:20px; padding: 10px; font-weight: bold;">Members</a></li>
             </ul>
         </div>
 

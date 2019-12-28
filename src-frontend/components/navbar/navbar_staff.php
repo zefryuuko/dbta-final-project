@@ -13,13 +13,15 @@
                 <li class="nav-item"><a class="nav-link" href="/staff/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/staff_details.php" style="font-size:20px; padding: 10px; font-weight: bold;">Staff Details</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/menu.php" style="font-size:20px; padding: 10px; font-weight: bold;">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/branch.php" style="font-size:20px; padding: 10px; font-weight: bold;">Branch</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/membership.php" style="font-size:20px; padding: 10px; font-weight: bold;">Members</a></li>
             </ul>
         </div>
 
         <!-- <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav"></ul>
         </div> -->
-        
+
         <!-- <ul class="navbar-nav" style="float: right;">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

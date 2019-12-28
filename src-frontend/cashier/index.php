@@ -73,7 +73,7 @@
                   href="/staff/menu.php"
                   class="btn btn-primary"
                   style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;"
-                  >Membership</a
+                  >Members</a
                 >
               </div>
             </div>
