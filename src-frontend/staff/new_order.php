@@ -34,6 +34,9 @@
                     </thead>
                     <tbody style="font-size: 18px">
                         <?php include("../components/modular/new_order.php"); ?>
+                        <?php include("../components/modular/new_order.php"); ?>
+                        <?php include("../components/modular/new_order.php"); ?>
+                        <?php include("../components/modular/new_order.php"); ?>
                     </tbody>
                 </table>
             </div>

@@ -36,16 +36,13 @@
                         </tr>
                     </thead>
                     <tbody style="font-size: 18px">
-                        <?php include("../components/modular/menu.php"); ?>
-                        <?php include("../components/modular/menu.php"); ?>
-                        <?php include("../components/modular/menu.php"); ?>
-                        <?php include("../components/modular/menu.php"); ?>
+                        <!-- <?php include("../components/modular/menu.php"); ?> -->
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <div class="bodyRight" style="float: right; margin-right: -120px; margin-top: 30px;">
+        <div class="bodyRight" style="float: right; margin: auto -120px auto auto; padding-top: 200px;">
             <div class="box" style="width: 400px;
                 height: 450px;
                 padding: 40px;
