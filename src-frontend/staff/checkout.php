@@ -49,20 +49,16 @@
             <?php include("../components/modular/total_purchase.php"); ?>
             <!--Subtotal table-->
 
-            <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 42.8%; margin-top: 20px;">
-                Discounts
-            </button>
-
-            <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 30px; width: 42.8%; margin-top: 20px;">
+            <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 42.8%; margin-top: -135px;">
                 Pay Bill
             </button>
-
-            <button type="button" class="btn btn-danger btn-primary btn-lg" style="width: 42.8%; margin-top: 80px;">
-                Cancel Order
-            </button>
-
-            <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 30px; width: 42.8%; margin-top: 80px;">
+            
+            <button type="button" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 42.8%; margin-top: 135px;">
                 Done
+            </button>
+            
+            <button type="button" class="btn btn-danger btn-primary btn-lg" style="width: 42.8%; margin-top: -75px;">
+                Cancel Order
             </button>
         </div>
     </div>

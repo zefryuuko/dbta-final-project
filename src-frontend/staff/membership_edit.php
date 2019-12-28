@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Edit Branch</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Edit Membership</h5>
               <button
                 type="button"
                 class="close"
@@ -47,13 +47,13 @@
               <form>
                 <div class="form-group">
                   <label for="branch-name" class="col-form-label"
-                    >Branch Name</label
+                    >Card Holder Name</label
                   >
                   <input type="text" class="form-control" id="branch-name" />
                 </div>
                 <div class="form-group">
                   <label for="message-text" class="col-form-label"
-                    >Branch Phone</label
+                    >Balance</label
                   >
                   <input type="text" class="form-control" id="branch-name" />
                 </div>
