@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
-    <?php include "../components/bootstrap.php";?>
+    <?php include ("../components/bootstrap.php");?>
 
     <body>
       <div class="container">
-        <?php include "../components/navbar/navbar_welcome.php";?>
+        <?php include ("../components/navbar/navbar_welcome.php");?>
         <div class="card-deck" style="width:100%; margin: 50px auto auto auto;">
           <div class="card border-dark mb-3">
             <img
@@ -70,7 +70,7 @@
                   Click here to see top up membership card holders.
                 </p>
                 <a
-                  href="/staff/menu.php"
+                  href="/cashier/membership.php"
                   class="btn btn-primary"
                   style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;"
                   >Members</a

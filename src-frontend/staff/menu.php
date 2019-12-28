@@ -28,7 +28,7 @@
                 <table class="table" style="width: 550px; float: left; margin-left: 55px;">
                     <thead class="thead-dark" style="font-size: 20px">
                         <tr>
-                            <th scope="col" style="width: 100px">Item ID</th>
+                            <th scope="col" style="width: 100px">ID</th>
                             <th scope="col" style="width: 100px">Item</th>
                             <th scope="col" style="width: 100px">Size</th>
                             <th scope="col" style="width: 170px;">Price</th>

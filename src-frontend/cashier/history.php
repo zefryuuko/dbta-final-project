@@ -21,7 +21,7 @@
         <table class="table" style="width: 1000px; float: left; margin-left: 55px; margin-top: 10px;">
                 <thead class="thead-dark" style="font-size: 20px">
                     <tr>
-                        <th scope="col" style="width: 200px">Transaction ID</th>
+                        <th scope="col" style="width: 200px">ID</th>
                         <th scope="col" style="width: 150px">Cashier</th>
                         <th scope="col" style="width: 200px">Price</th>
                         <th scope="col" style="width: 250px">Date</th>
