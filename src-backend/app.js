@@ -34,15 +34,16 @@ var db = mysql.createPool({
 });
 
 var mdb;
+var auth;
 MongoClient.connect(
   `mongodb://${authInfo["user_mongo"]}:${authInfo["pass_mongo"]}@${authInfo["host"]}`,
   (err, client) => {
     if (err) console.log(err);
     mdb = client.db(authInfo["database_mongo"]);
+    auth = new Auth(db, mdb);
   }
 );
 
-const auth = new Auth(db, mdb);
 const staff = new Staff(db);
 const item = new Item(db);
 const discount = new Discount(db);
@@ -52,6 +53,19 @@ const bill = new Bill(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
+});
+
+// Auth Routes
+app.get("/auth", (req, res) => {
+  auth.authCheck(req.query.id, req.query.session, req.query.level, result => {
+    res.send(result);
+  });
+});
+
+app.get("/auth/login", (req, res) => {
+  auth.login(req.query.id, req.query.pass, req.query.level, result => {
+    res.send(result);
+  });
 });
 
 // Staff Routes
