@@ -10,6 +10,7 @@ const Item = require("./item");
 const Discount = require("./discount");
 const Branch = require("./branch");
 const Card = require("./card");
+const Bill = require("./bill");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,6 +34,7 @@ const item = new Item(db);
 const discount = new Discount(db);
 const branch = new Branch(db);
 const card = new Card(db);
+const bill = new Bill(db);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -310,6 +312,18 @@ app.delete("/card", (req, res) => {
   card.removeCard(req.body.no, result => {
     res.send(result);
   });
+});
+
+app.get("/bill", (req, res) => {
+  if (req.query.id != undefined) {
+    bill.getBillByID(req.query.id, result => {
+      res.send(result);
+    });
+  } else {
+    bill.getBills(req.query.count, req.query.page, result => {
+      res.send(result);
+    });
+  }
 });
 
 var server = app.listen(8081, () => {
