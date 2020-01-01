@@ -326,6 +326,18 @@ app.get("/bill", (req, res) => {
   }
 });
 
+app.post("/bill", (req, res) => {
+  if (req.body.task == undefined)
+    res.send({ status: "failed", message: "missing task parameter." });
+  else if (req.body.data == undefined)
+    res.send({ status: "failed", message: "missing data parameter." });
+  else if (req.body.task == "add") {
+    bill.addBill(req.body.data, result => {
+      res.send(result);
+    });
+  }
+});
+
 var server = app.listen(8081, () => {
   var host = server.address().address;
   var port = server.address().port;
