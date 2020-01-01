@@ -38,7 +38,7 @@ MongoClient.connect(
   `mongodb://${authInfo["user_mongo"]}:${authInfo["pass_mongo"]}@${authInfo["host"]}`,
   (err, client) => {
     if (err) console.log(err);
-    db = client.db(authInfo["database_mongo"]);
+    mdb = client.db(authInfo["database_mongo"]);
   }
 );
 
