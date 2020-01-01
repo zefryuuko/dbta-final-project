@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="../Images/starbucks favicon.png" rel="shortcut icon" />
+    <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include("../components/bootstrap.php"); ?>
 </head>
 
 <body style="background-color: #006335;">
     <div class="container">
-        <?php include("../components/navbar_login.php"); ?>
+        <?php include("../components/navbar/navbar_login.php"); ?>
 
         <div class="box" style="width: 500px;
         height: 500px;
