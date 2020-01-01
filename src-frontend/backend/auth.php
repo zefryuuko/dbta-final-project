@@ -1,6 +1,17 @@
 <?php
+include("curl.php");
 
-function isAuthenticated($role, $username, $sessionID)
+function authenticate($level, $username, $password)
 {
-    return false;
+    return callAPI("GET", "http://localhost:8081/auth/login?id=".$username."&pass=".$password."&level=".$level);
+}
+
+function isAuthenticated($level, $username, $sessionID)
+{
+    return callAPI("GET", "http://localhost:8081/auth/?id=".$username."&session=".$sessionID."&level=".$level);
+}
+
+function logout($sessionID)
+{
+
 }
