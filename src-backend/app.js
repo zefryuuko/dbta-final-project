@@ -8,6 +8,7 @@ const authInfo = JSON.parse(fs.readFileSync("auth.json"));
 
 const MongoClient = mongodb.MongoClient;
 
+const Auth = require("./auth");
 const Staff = require("./staff");
 const Item = require("./item");
 const Discount = require("./discount");
@@ -41,6 +42,7 @@ MongoClient.connect(
   }
 );
 
+const auth = new Auth(db, mdb);
 const staff = new Staff(db);
 const item = new Item(db);
 const discount = new Discount(db);
