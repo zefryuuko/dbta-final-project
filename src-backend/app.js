@@ -3,7 +3,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const basicAuth = require("express-basic-auth");
 const mysql = require("mysql");
+const mongodb = require("mongodb");
 const authInfo = JSON.parse(fs.readFileSync("auth.json"));
+
+const MongoClient = mongodb.MongoClient;
 
 const Staff = require("./staff");
 const Item = require("./item");
@@ -28,6 +31,15 @@ var db = mysql.createPool({
   password: authInfo["password"],
   database: authInfo["database"]
 });
+
+var mdb;
+MongoClient.connect(
+  `mongodb://${authInfo["user_mongo"]}:${authInfo["pass_mongo"]}@${authInfo["host"]}`,
+  (err, client) => {
+    if (err) console.log(err);
+    db = client.db(authInfo["database_mongo"]);
+  }
+);
 
 const staff = new Staff(db);
 const item = new Item(db);
