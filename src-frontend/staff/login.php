@@ -29,7 +29,7 @@
             border-radius: 5px;
             text-align: center;
             margin: 0px !important;">
-                <form action="#">
+                <form action="/staff/auth.php?" method="POST" enctype="application/x-www-form-urlencoded">
                     <h1>Sign In</h1>
                     <h3>Welcome back to</h3>
                     <h3>Starbucks Dashboard!</h3>
@@ -37,16 +37,17 @@
                     <!--Staff ID Number-->
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="inputEmail3" placeholder="Staff ID Number" />
+                            <input type="text" class="form-control" name="id" placeholder="Staff ID Number" />
                         </div>
                     </div>
                     <!--Password-->
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" />
+                            <input type="password" class="form-control" name="pass" placeholder="Password" />
                         </div>
                         <!--Submit Button-->
                     </div>
+                    <input type="hidden" name="level" value="0"/>
                     <div class="form-group row">
                         <div class="col-sm-12">
                             <button type="submit" style="width: 100%; background-color: #242625; border-color:#242625; font-weight: bold;" class="btn btn-primary">
