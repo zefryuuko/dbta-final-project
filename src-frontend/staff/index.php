@@ -7,7 +7,7 @@
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include "../components/bootstrap.php";?>
-    <?php include("auth.php");?>
+    <?php $pageLevel=1;include("auth.php");?>
   </head>
 
   <body onload="auth()">
