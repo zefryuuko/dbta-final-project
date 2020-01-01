@@ -50,7 +50,7 @@ class Auth {
                   );
                 callback({
                   status: "success",
-                  sessionID: sessionID
+                  session: sessionID
                 });
               } else {
                 callback({
@@ -104,7 +104,7 @@ class Auth {
             .updateOne({ id: result.id }, { $set: { session: sessionID } });
           callback({
             status: "success",
-            sessionID: sessionID
+            session: sessionID
           });
         } else {
           callback({
