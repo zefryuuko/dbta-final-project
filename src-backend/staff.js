@@ -1,16 +1,22 @@
 class Staff {
-  constructor(db, auth) {
+  constructor(db, mdb, auth) {
     this.db = db;
+    this.mdb = mdb;
     this.auth = auth;
   }
 
   // CREATE
-  addStaff(name, level, callback) {
+  addStaff(name, password, level, callback) {
     this.db.query(
       "INSERT INTO Staff (staff_name, staff_level) VALUES (?, ?)",
       [name, level],
       (err, result, fields) => {
         if (result.affectedRows > 0) {
+          // Add auth info to mongodb
+          this.db.query("SELECT LAST_INSERT_ID()", (err, result, fields) => {
+            var staffID = result["LAST_INSERT_ID()"];
+            this.auth.addAuth(staffID, password);
+          });
           callback({ status: "success" });
         } else {
           callback({ status: "failed", message: result.message });
