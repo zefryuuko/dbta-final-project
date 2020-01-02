@@ -1,6 +1,7 @@
 class Staff {
-  constructor(db) {
+  constructor(db, auth) {
     this.db = db;
+    this.auth = auth;
   }
 
   // CREATE
