@@ -13,46 +13,121 @@
       $pageLevel = 0;
       include("auth.php");
     ?>
+    <?php
+        include("../backend/bill.php");
+        if (!isset($_GET["id"])) echo "<script>function redirect(){window.location.replace('/staff/history.php');}</script>";
+        else $transactionDetails = getBillByID($_GET["id"])
+    ?>
 </head>
 
-<body onload="auth()">
+<body onload="try {auth()} catch(e) {}; redirect();">
     <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
 
-        <div class="bodyLeft" style="float:left;">
+        <div class="bodyLeft">
             <p style="font-size:20px; padding-left:10px; margin-left: 45px; margin-top:5px;">
-                <b>Transaction ID</b>: xxxxxxxxxx <br />
-                <b>Date</b>: DD/MM/YYYY <br />
-                <b>Cashier</b>: Zef
+                <b>Transaction ID</b>: <?php echo $transactionDetails["bill_id"] ?> <br />
+                <b>Check Number</b>: <?php echo $transactionDetails["check_number"] ?> <br />
+                <b>Cashier</b>: <?php echo $transactionDetails["staff_name"] ?>
             </p>
 
             <div class="table-responsive">
-            <table class="table" style="width: 520px; float: left; margin-left: 55px; margin-top:20px;">
+            <table class="table" style="margin-top:20px;">
                     <thead class="thead-dark" style="font-size: 20px">
                         <tr>
-                            <th scope="col" style="width: 50px">#</th>
-                            <th scope="col" style="width: 100px">Item</th>
-                            <th scope="col" style="width: 50px">Quantity</th>
-                            <th scope="col" style="width: 70px">Size</th>
-                            <th scope="col" style="width: 250px">Price</th>
+                            <th scope="col" style="width: 90px">Item</th>
+                            <th scope="col" style="width: 50px">Size</th>
+                            <th scope="col" style="width: 80px">Discount</th>
+                            <th scope="col" style="width: 100px">Price</th>
                         </tr>
                     </thead>
                     <tbody style="font-size: 18px">
-                        <?php include("../components/modular/order_checkout.php"); ?>
-                        <?php include("../components/modular/order_checkout.php"); ?>
-                        <?php include("../components/modular/order_checkout.php"); ?>
+                        <?php
+                            foreach($transactionDetails["items"] as $item)
+                            {
+                                $discountDetails = sizeof($item["discount"]) != 0 ? $item["discount"]["discount_name"]." - ".$item["discount"]["discount_percentage"]."%" : "";
+                                echo "<tr>
+                                <th scope=\"row\">".$item["item_name"]."</th>
+                                <td>".$item["item_size"]."</td>
+                                <td>".$discountDetails."</td>
+                                <td>Rp. ".$item["item_price"]."</td>
+                            </tr>";
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
+            <div style="font-size:20px;  margin-top:5px;">
+                <div class="table-responsive">
+                    <table class="table" style="width: 700px; margin-right: 70px; margin-top: 20px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" style="width: 150px; font-size: 22px; font-weight: bold;">
+                                    Total:
+                                </th>
+                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
+                                    Rp. <?php echo $transactionDetails["amount_total"] ?>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                            <tr>
+                                <th scope="col" style="width: 150px; font-size: 22px; font-weight: bold;">
+                                    Amount Paid:
+                                </th>
+                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
+                                    Rp. <?php echo $transactionDetails["amount_paid"] ?>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                            <tr>
+                                <th scope="col" style="width: 150px; font-size: 22px; font-weight: bold;">
+                                    Amount Change:
+                                </th>
+                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
+                                    Rp. <?php echo $transactionDetails["amount_change"] ?>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                            <tr>
+                                <th scope="col" style="width: 350px; font-size: 22px; font-weight: bold;">
+                                    Payment Method:
+                                </th>
+                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
+                                    <?php echo $transactionDetails["payment_method"] ?>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                            <tr>
+                                <th scope="col" style="width: 250px; font-size: 22px; font-weight: bold;">
+                                    Card No:
+                                </th>
+                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
+                                    <?php echo $transactionDetails["card_no"] ?>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                            <tr>
+                                <th scope="col" style="width: 250px; font-size: 22px; font-weight: bold;">
+                                    Cardholder Name:
+                                </th>
+                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
+                                    <?php echo $transactionDetails["cardholder_name"] ?>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
             <!--Order Table-->
-            <a type="button" href="/staff/history.php" class=" btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 55px; margin-top:110px; width: 60%">
+            <a type="button" href="/staff/history.php" class=" btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-top:20px; width: 750px">
                 Back
             </a>
         </div>
         <!--End of Left Body-->
 
-        <div class="bodyRight" style="float:right;">
-            <?php include("../components/modular/total_purchase.php"); ?>
+        <div class="bodyRight">
+            
             <!--Subtotal table-->
         </div>
         <!--End of Right Body-->
