@@ -1,6 +1,16 @@
 <?php
+$pageLevel = 0;
 include("../backend/auth.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") // Handle authentication
+if ($_SERVER["REQUEST_METHOD"] == "GET") // Handle auth check
+{
+    if (isset($_COOKIE["id"]) && isset($_COOKIE["session"]))
+    {
+        $status = json_decode(isAuthenticated($pageLevel, $_COOKIE["id"], $_COOKIE["session"]));
+        if ($status->status == "success")
+            echo "<script>function auth(){window.location.replace('/staff');}</script>";
+    }
+}
+else if ($_SERVER["REQUEST_METHOD"] == "POST") // Handle authentication
 {
     if (!empty($_POST["id"]) && !empty($_POST["pass"]))
     {
@@ -36,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Handle authentication
     <?php include("../components/bootstrap.php"); ?>
 </head>
 
-<body style="background-color: #006335;">
+<body style="background-color: #006335;" onload="auth()">
     <div class="container">
         <?php include("../components/navbar/navbar_login.php"); ?>
 
