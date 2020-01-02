@@ -1,5 +1,5 @@
 <?php
-include("curl.php");
+include_once("curl.php");
 
 $showCount = 5;
 
