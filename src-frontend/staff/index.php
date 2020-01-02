@@ -83,7 +83,7 @@
                 Click here to see staff details.
               </p>
               <a
-                href="/staff/staff_details.php"
+                href="/staff/staffs.php"
                 class="btn btn-primary"
                 style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;"
                 >Staff</a
