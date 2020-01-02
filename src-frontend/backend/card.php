@@ -24,6 +24,7 @@ function getCardByNo($no)
 
 function getCardsByName($name, $page = 1)
 {
+    $name = str_replace(" ", "+", $name);
     $raw_data = callAPI("GET", "http://localhost:8081/card?name=".$name);
     return json_decode($raw_data, true);
 }
