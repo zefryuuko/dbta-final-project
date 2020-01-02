@@ -46,29 +46,21 @@
               <h3
                 class="modal-title"
                 id="exampleModalLabel"
-                style="text-align: center;"
+                style="text-align: center; color: #ff0000"
               >
-                Discounts
+                Are you sure?
               </h3>
-              <br>
-              <div class="table-responsive">
-                <table
-                  class="table"
-                style="width: 400px; float: left; margin-left: 40px;"
-                >
-                  <thead class="thead-dark" style="font-size: 20px">
-                    <tr>
-                      <th scope="col" style="width: 80px">ID</th>
-                      <th scope="col" style="width: 100px">Name</th>
-                      <th scope="col" style="width: 150px">Percentage</th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody style="font-size: 18px">
-                    <?php include("../components/modular/discounts.php"); ?>
-                  </tbody>
-                </table>
-              </div>
+              <img
+                src="../resources/cross.svg"
+                style="width: 20%;
+              padding: 5px;
+              margin: auto 0 auto 185px;
+              display: block"
+              />
+              <p style="width: 80%; text-align: center; margin: auto;">
+                Are you sure you want to delete this record? This process can
+                not be undone.
+              </p>
             </div>
             <div class="modal-footer" style="margin: auto;">
               <button
@@ -84,7 +76,7 @@
                 class="btn btn-danger"
                 style="width: 150px;"
               >
-                Done
+                Delete
               </button>
             </div>
           </div>
