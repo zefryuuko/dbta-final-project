@@ -9,15 +9,25 @@ function getRandomNumber($len = "16")
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") // Membership Registration
 {
-    if (!empty($_POST["name"]) && !empty($_POST["balance"]))
+    if (!empty($_POST["card_number"]))
     {
-        // $status = addCard("{'task':'add','no':'".getRandomNumber()."','name':'".$_POST["name"]."','balance':".$_POST["balance"]."}");
+      $status = updateCard($_POST["card_number"], $_POST["cardholder_name"], $_POST["card_balance"]);
+        if ($status["status"] == "success")
+        {
+            echo "<script>function membership(){alert('Updated member successfully.');window.location.replace('/staff/membership.php');}</script>";
+        }
+        else
+        {
+            echo "<script>function membership(){alert('".$status["message"]."');window.location.replace('/staff/membership.php');}</script>";
+        }
+    }
+    else if (!empty($_POST["name"]) && !empty($_POST["balance"]))
+    {
         $status = addCard("task=add&no=".getRandomNumber()."&name=".$_POST["name"]."&balance=".$_POST["balance"]);
-        print_r($status);
         if ($status["status"] == "success")
         {
             // 
-            echo "<<script>function membership(){alert('Added member successfully.');window.location.replace('/staff/membership.php');}</script>";
+            echo "<script>function membership(){alert('Added member successfully.');window.location.replace('/staff/membership.php');}</script>";
         }
         else
         {
@@ -156,5 +166,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Membership Registration
         </div>
       </div>
     </div>
+    <?php
+      // Modals
+      if (!empty($_GET["name"]) ) {}
+      else generateModals(!empty($_GET["page"]) ? $_GET["page"] : 1);
+    ?>
   </body>
 </html>
