@@ -7,9 +7,13 @@
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include ("../components/bootstrap.php");?>
-  </head>
+    <?php 
+      $pageLevel = 0;
+      include("auth.php");
+    ?>
+</head>
 
-  <body>
+<body onload="auth()">
     <div class="container">
       <!-- Button trigger modal -->
       <button

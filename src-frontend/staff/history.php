@@ -8,9 +8,13 @@
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include("../components/bootstrap.php"); ?>
+    <?php 
+      $pageLevel = 0;
+      include("auth.php");
+    ?>
 </head>
 
-<body>
+<body onload="auth()">
     <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
 
