@@ -1,5 +1,5 @@
 <?php
-include("../backend/card.php");
+include_once("../backend/card.php");
 
 function generateTableBody($currentPage = 1)
 {
