@@ -98,16 +98,24 @@ app.post("/staff", (req, res) => {
     res.send({ status: "failed", message: "missing name parameter." });
   else if (req.body.level == undefined)
     res.send({ status: "failed", message: "missing level parameter." });
+  else if (req.body.password == undefined)
+    res.send({ status: "failed", message: "missing password parameter." });
   else if (req.body.task == "add") {
-    staff.addStaff(req.body.name, req.body.level, result => {
+    staff.addStaff(req.body.name, req.body.password, req.body.level, result => {
       res.send(result);
     });
   } else if (req.body.task == "update") {
     if (req.body.id == undefined)
       res.send({ status: "failed", message: "missing id parameter." });
-    staff.updateStaff(req.body.id, req.body.name, req.body.level, result => {
-      res.send(result);
-    });
+    staff.updateStaff(
+      req.body.id,
+      req.body.name,
+      req.body.password,
+      req.body.level,
+      result => {
+        res.send(result);
+      }
+    );
   }
 });
 
