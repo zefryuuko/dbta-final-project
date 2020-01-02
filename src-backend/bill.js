@@ -39,7 +39,7 @@ class Bill {
 
   getBillByID(id, callback) {
     this.db.query(
-      "SELECT b.bill_id, r.branch_name, c.staff_name, b.check_number, b.dine_type, b.amount_paid, b.amount_change, i.item_name, i.item_size, t.item_price, d.discount_name, t.discount_percentage, m.method_name, p.card_no FROM Bill b LEFT JOIN Branch r ON r.branch_id = b.branch_id LEFT JOIN Staff c ON c.staff_id = b.cashier_id LEFT JOIN TransactionDetails t ON t.bill_id = b.bill_id LEFT JOIN Items i ON i.item_id = t.item_id LEFT JOIN Discount d ON d.discount_id = t.discount_id LEFT JOIN PaymentDetails p ON p.bill_id = b.bill_id LEFT JOIN PaymentMethod m ON p.method_id = m.method_id WHERE b.bill_id = ?",
+      "SELECT b.bill_id, r.branch_name, c.staff_name, b.check_number, b.dine_type, b.amount_paid, b.amount_change, i.item_name, i.item_size, t.item_price, d.discount_name, t.discount_percentage, m.method_name, p.card_no, s.cardholder_name FROM Bill b LEFT JOIN Branch r ON r.branch_id = b.branch_id LEFT JOIN Staff c ON c.staff_id = b.cashier_id LEFT JOIN TransactionDetails t ON t.bill_id = b.bill_id LEFT JOIN Items i ON i.item_id = t.item_id LEFT JOIN Discount d ON d.discount_id = t.discount_id LEFT JOIN PaymentDetails p ON p.bill_id = b.bill_id LEFT JOIN PaymentMethod m ON p.method_id = m.method_id LEFT JOIN StarbucksCard s ON s.card_number = p.card_no WHERE b.bill_id = ?",
       [id],
       (err, result, fields) => {
         // Format query results to make it readable
@@ -55,14 +55,20 @@ class Bill {
               : "Removed staff",
           check_number: result[0].check_number,
           dine_type: result[0].dine_type == 0 ? "Dine in" : "Take away",
+          amount_total: 0,
           amount_paid: result[0].amount_paid,
           amount_change: result[0].amount_change,
           payment_method: result[0].method_name,
           card_no: result[0].card_no != undefined ? result[0].card_no : "",
+          cardholder_name:
+            result[0].cardholder_name != undefined
+              ? result[0].cardholder_name
+              : "",
           items: []
         };
         // Populate items array
         result.forEach(element => {
+          formattedResult.amount_total += element.item_price;
           formattedResult.items.push({
             item_name:
               element.item_name != undefined
