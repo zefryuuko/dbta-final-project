@@ -144,6 +144,24 @@ class Auth {
   }
 
   // UPDATE
+  updateAuth(id, password, callback) {
+    this.mdb
+      .collection("staff")
+      .updateOne(
+        { id: id },
+        { $set: { password: password } },
+        (err, result) => {
+          if (result == null) {
+            callback({
+              status: "failed",
+              message: "ID not found."
+            });
+            return;
+          }
+          callback({ status: "success" });
+        }
+      );
+  }
 
   // DELETE
 }
