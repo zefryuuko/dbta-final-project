@@ -7,6 +7,33 @@ class Auth {
   }
 
   // CREATE
+  createAuth(id, pass, callback) {
+    // Check if id already exists in the database
+    this.mdb.collection("staff").findOne({ id: id }, (err, result) => {
+      if (result != null) {
+        callback({
+          status: "failed",
+          message: "ID already exists in the database."
+        });
+        return;
+      }
+
+      // Create entry
+      this.mdb
+        .collection("staff")
+        .insert({ id: id, password: pass, session: "" }, (err, result) => {
+          if (result == null) {
+            callback({
+              status: "failed",
+              message: "ID and or password does not match."
+            });
+            return;
+          } else {
+            callback({ status: "success" });
+          }
+        });
+    });
+  }
 
   // READ
   login(id, pass, level, callback) {
