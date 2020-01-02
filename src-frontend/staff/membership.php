@@ -58,14 +58,17 @@
               </tr>
             </thead>
             <tbody style="font-size: 18px">
-            <?php include ("../components/modular/membership_staff.php");?>
-            <?php include ("../components/modular/membership_staff.php");?>
-            <?php include ("../components/modular/membership_staff.php");?>
+            <?php include ("../components/modular/membership_staff.php"); ?>
+            <?php generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
           </tbody>
           </table>
         </div>
       </div>
-
+      <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <?php generatePagination(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
+            </ul>
+        </nav>
       <div
         class="bodyRight"
         style="margin-top: 30px;"
