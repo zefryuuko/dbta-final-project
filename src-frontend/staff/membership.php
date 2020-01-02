@@ -1,3 +1,35 @@
+<?php
+include_once("../backend/card.php");
+
+function getRandomNumber($len = "16")
+{
+    $better_token = $code=sprintf("%0".$len."d", mt_rand(1, str_pad("", $len,"9")));
+    return $better_token;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") // Membership Registration
+{
+    if (!empty($_POST["name"]) && !empty($_POST["balance"]))
+    {
+        // $status = addCard("{'task':'add','no':'".getRandomNumber()."','name':'".$_POST["name"]."','balance':".$_POST["balance"]."}");
+        $status = addCard("task=add&no=".getRandomNumber()."&name=".$_POST["name"]."&balance=".$_POST["balance"]);
+        print_r($status);
+        if ($status["status"] == "success")
+        {
+            // 
+            echo "<<script>function membership(){alert('Added member successfully.');window.location.replace('/staff/membership.php');}</script>";
+        }
+        else
+        {
+            echo "<script>function membership(){alert('".$status["message"]."');window.location.replace('/staff/membership.php');}</script>";
+        }
+    }
+    else 
+    {
+        echo "<script>function membership(){alert('Incorrect input.');window.location.replace('/staff/membership.php');}</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +45,7 @@
     ?>
 </head>
 
-<body onload="auth()">
+<body onload="try {auth()}catch(e){} membership();">
     <div class="container">
       <?php include ("../components/navbar/navbar_staff.php");?>
       <div class="bodyLeft" >
@@ -95,9 +127,11 @@
           >
             Add Member
           </p>
+          <form action="/staff/membership.php" method="POST">
           <input
             class="form-control"
             type="text"
+            name="name"
             placeholder="Card Holder Name"
             style="padding: 10px;"
           />
@@ -105,6 +139,7 @@
           <input
             class="form-control"
             type="text"
+            name="balance"
             placeholder="Starting Balance"
             style="padding: 10px;"
           />
@@ -118,6 +153,7 @@
           >
             Add Member
           </button>
+          </form>
         </div>
       </div>
     </div>
