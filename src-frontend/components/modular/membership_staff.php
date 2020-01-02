@@ -32,4 +32,13 @@ function generatePagination($currentPage = 1)
     }
 }
 
+function generateTableBodyByName($name, $currentPage = 1)
+{
+    $cards = getCardsByName($name, $currentPage);
+    foreach ($cards as $card)
+    {
+        echo "<tr><td>".$card["card_number"]."</td><td>".$card["cardholder_name"]."</td><td>".$card["card_balance"]."</td><td><a href=\"#\"><img src=\"/resources/cross.svg\" style=\"width: 45%\"></a></td><td><a href=\"#\"><img src=\"/resources/edit.svg\" style=\"width: 45%\"></a></td>";
+    }
+}
+
 ?>

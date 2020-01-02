@@ -27,10 +27,12 @@
           <form
             class="form-inline"
             style="margin-top: 10px; margin-right: 80px;"
+            action="membership.php" method="GET" enctype="application/x-www-form-urlencoded"
           >
             <input
               class="form-control mr-sm-2"
               type="search"
+              name="name"
               placeholder="Search"
               aria-label="Search"
             />
@@ -59,14 +61,19 @@
             </thead>
             <tbody style="font-size: 18px">
             <?php include ("../components/modular/membership_staff.php"); ?>
-            <?php generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
+            <?php
+                // Searching implementation
+
+                if (!empty($_GET["name"]) ) generateTableBodyByName($_GET["name"], !empty($_GET["page"]) ? $_GET["page"] : 1);
+                else generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1);
+                ?>
           </tbody>
           </table>
         </div>
       </div>
       <nav aria-label="Page navigation">
             <ul class="pagination">
-                <?php generatePagination(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
+                <?php if (empty($_GET["name"])) generatePagination(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
             </ul>
         </nav>
       <div
