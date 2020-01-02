@@ -326,7 +326,7 @@ app.post("/card", (req, res) => {
       res.send(result);
     });
   } else if (req.body.task == "update") {
-    if (req.body.id == undefined)
+    if (req.body.no == undefined)
       res.send({ status: "failed", message: "missing no parameter." });
     if (req.body.name == undefined)
       res.send({ status: "failed", message: "missing name parameter." });
