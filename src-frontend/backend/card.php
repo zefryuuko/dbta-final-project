@@ -9,6 +9,13 @@ function addCard($json)
     return json_decode($raw_data, true);
 }
 
+function updateCard($card_number, $cardholder_name, $balance)
+{
+    $data = "task=update&no=".$card_number."&name=".$cardholder_name."&balance=".$balance;
+    $raw_data = callAPI("POST", "http://localhost:8081/card", $data);
+    return json_decode($raw_data, true);
+}
+
 function getCards($page = 1)
 {
     global $showCount;
