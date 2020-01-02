@@ -35,16 +35,17 @@ var db = mysql.createPool({
 
 var mdb;
 var auth;
+var staff;
 MongoClient.connect(
   `mongodb://${authInfo["user_mongo"]}:${authInfo["pass_mongo"]}@${authInfo["host"]}`,
   (err, client) => {
     if (err) console.log(err);
     mdb = client.db(authInfo["database_mongo"]);
     auth = new Auth(db, mdb);
+    staff = new Staff(db, mdb, auth);
   }
 );
 
-const staff = new Staff(db);
 const item = new Item(db);
 const discount = new Discount(db);
 const branch = new Branch(db);
