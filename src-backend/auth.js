@@ -21,7 +21,7 @@ class Auth {
       // Create entry
       this.mdb
         .collection("staff")
-        .insert({ id: id, password: pass, session: "" }, (err, result) => {
+        .insertOne({ id: id, password: pass, session: "" }, (err, result) => {
           if (result == null) {
             callback({
               status: "failed",
