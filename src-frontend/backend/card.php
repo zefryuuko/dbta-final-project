@@ -3,6 +3,12 @@ include_once("curl.php");
 
 $showCount = 5;
 
+function addCard($json)
+{
+    $raw_data = callAPI("POST", "http://localhost:8081/card", $json);
+    return json_decode($raw_data, true);
+}
+
 function getCards($page = 1)
 {
     global $showCount;
