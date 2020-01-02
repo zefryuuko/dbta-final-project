@@ -98,24 +98,26 @@
                                 </th>
                                 <th scope="col"></th>
                             </tr>
-                            <tr>
-                                <th scope="col" style="width: 250px; font-size: 22px; font-weight: bold;">
+                            <?php if ($transactionDetails["payment_method"] == "Starbucks Card") {
+                                echo "<tr>
+                                <th scope=\"col\" style=\"width: 250px; font-size: 22px; font-weight: bold;\">
                                     Card No:
                                 </th>
-                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
-                                    <?php echo $transactionDetails["card_no"] ?>
+                                <th scope=\"col\" style=\" font-size: 22px; font-weight: bold;\">
+                                    ".$transactionDetails["card_no"]."
                                 </th>
-                                <th scope="col"></th>
+                                <th scope=\"col\"></th>
                             </tr>
                             <tr>
-                                <th scope="col" style="width: 250px; font-size: 22px; font-weight: bold;">
+                                <th scope=\"col\" style=\"width: 250px; font-size: 22px; font-weight: bold;\">
                                     Cardholder Name:
                                 </th>
-                                <th scope="col" style=" font-size: 22px; font-weight: bold;">
-                                    <?php echo $transactionDetails["cardholder_name"] ?>
+                                <th scope=\"col\" style=\" font-size: 22px; font-weight: bold;\">
+                                    ".$transactionDetails["cardholder_name"]."
                                 </th>
-                                <th scope="col"></th>
-                            </tr>
+                                <th scope=\"col\"></th>
+                            </tr>";
+                            } ?>
                         </thead>
                     </table>
                 </div>
