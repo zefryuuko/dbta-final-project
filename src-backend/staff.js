@@ -78,6 +78,7 @@ class Staff {
       [id],
       (err, result, fields) => {
         if (result.affectedRows > 0) {
+          this.auth.removeAuth(parseInt(id), () => {});
           callback({ status: "success" });
         } else {
           callback({ status: "failed", message: result.message });
