@@ -56,12 +56,13 @@ class Staff {
   }
 
   // UPDATE
-  updateStaff(id, name, level, callback) {
+  updateStaff(id, name, password, level, callback) {
     this.db.query(
       "UPDATE Staff SET staff_name = ?, staff_level = ? WHERE staff_id = ?",
       [name, level, id],
       (err, result, fields) => {
         if (result.affectedRows > 0) {
+          this.auth.updateAuth(parseInt(id), password, () => {});
           callback({ status: "success" });
         } else {
           callback({ status: "failed", message: result.message });
