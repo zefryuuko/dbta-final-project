@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Membership Registration
     </div>
     <?php
       // Modals
-      if (!empty($_GET["name"]) ) {}
+      if (!empty($_GET["name"])) generateModalsByName($_GET["name"], !empty($_GET["page"]) ? $_GET["page"] : 1);
       else generateModals(!empty($_GET["page"]) ? $_GET["page"] : 1);
     ?>
   </body>
