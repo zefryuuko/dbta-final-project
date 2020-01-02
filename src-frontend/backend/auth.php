@@ -1,5 +1,5 @@
 <?php
-include("curl.php");
+include_once("curl.php");
 
 function authenticate($level, $username, $password)
 {
