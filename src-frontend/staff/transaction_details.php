@@ -27,6 +27,7 @@
         <div class="bodyLeft">
             <p style="font-size:20px; padding-left:10px; margin-left: 45px; margin-top:5px;">
                 <b>Transaction ID</b>: <?php echo $transactionDetails["bill_id"] ?> <br />
+                <b>Branch</b>: <?php echo $transactionDetails["branch_name"] ?> <br />
                 <b>Check Number</b>: <?php echo $transactionDetails["check_number"] ?> <br />
                 <b>Cashier</b>: <?php echo $transactionDetails["staff_name"] ?>
             </p>
