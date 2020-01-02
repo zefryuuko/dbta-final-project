@@ -16,10 +16,10 @@
 <body onload="auth()">
     <div class="container">
       <?php include ("../components/navbar/navbar_staff.php");?>
-      <div class="bodyLeft" style="float:left;">
+      <div class="bodyLeft" >
         <nav
           class="navbar navbar-light"
-          style="width: 650px; float: left; padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;"
+          style="width: 650px;padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;"
         >
           <a class="navbar-brand" style="font-size:25px; font-weight: bold;"
             >Membership</a
@@ -46,15 +46,15 @@
         <div class="table-responsive">
           <table
             class="table"
-            style="width: 550px; float: left; margin-left: 55px;"
+            style=""
           >
             <thead class="thead-dark" style="font-size: 20px">
               <tr>
-                <th scope="col" style="width: 70px">Number</th>
-                <th scope="col" style="width: 200px">Name</th>
-                <th scope="col" style="width: 120px">Balance</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col" style="width: 200px">Card Number</th>
+                <th scope="col" style="width: 300px">Name</th>
+                <th scope="col" style="width: 200px">Balance</th>
+                <th scope="col" style="width: 10px"></th>
+                <th scope="col" style="width: 10px"></th>
               </tr>
             </thead>
             <tbody style="font-size: 18px">
@@ -68,14 +68,14 @@
 
       <div
         class="bodyRight"
-        style="float: right; margin-right: -120px; margin-top: 30px;"
+        style="margin-top: 30px;"
       >
         <div
           class="box"
           style="width: 400px;
                 height: 450px;
                 padding: 40px;
-                margin: -380px 150px auto auto;
+                margin-top: 20px;
                 border-radius: 5px;
                 text-align: center;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
