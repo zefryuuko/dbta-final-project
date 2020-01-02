@@ -67,12 +67,12 @@ class Auth {
             [result.id],
             (err, result, fields) => {
               // Checks for authority based on level
-              if (level >= result[0].staff_level) {
+              if (parseInt(level) >= result[0].staff_level) {
                 var sessionID = uuidv1();
                 this.mdb
                   .collection("staff")
                   .updateOne(
-                    { id: result.id },
+                    { id: parseInt(id) },
                     { $set: { session: sessionID } }
                   );
                 callback({
@@ -91,7 +91,7 @@ class Auth {
       );
   }
 
-  authCheck(id, session, level) {
+  authCheck(id, session, level, callback) {
     // Validate id parameter
     if (isNaN(parseInt(id))) {
       callback({
@@ -104,7 +104,7 @@ class Auth {
     this.mdb
       .collection("staff")
       .findOne(
-        { id: id, session: session },
+        { id: parseInt(id), session: session },
         { projection: { _id: 0 } },
         (err, result) => {
           // If username/password combination does not match
@@ -115,32 +115,34 @@ class Auth {
             });
             return;
           }
+          // Access control for staff and admin
+          this.db.query(
+            "SELECT staff_level FROM Staff WHERE staff_id = ?",
+            [result.id],
+            (err, result, fields) => {
+              // Checks for authority based on level
+              if (parseInt(level) >= result[0].staff_level) {
+                // var sessionID = uuidv1();
+                // this.mdb
+                //   .collection("staff")
+                //   .updateOne(
+                //     { id: parseInt(id) },
+                //     { $set: { session: sessionID } }
+                //   );
+                callback({
+                  status: "success"
+                  // session: sessionID
+                });
+              } else {
+                callback({
+                  status: "failed",
+                  message: "You are not authorized to access this page."
+                });
+              }
+            }
+          );
         }
       );
-
-    // Access control for staff and admin
-    this.db.query(
-      "SELECT staff_level FROM Staff WHERE staff_id = ?",
-      [result.id],
-      (err, result, fields) => {
-        // Checks for authority based on level
-        if (level >= result[0].staff_level) {
-          var sessionID = uuidv1();
-          this.mdb
-            .collection("staff")
-            .updateOne({ id: result.id }, { $set: { session: sessionID } });
-          callback({
-            status: "success",
-            session: sessionID
-          });
-        } else {
-          callback({
-            status: "failed",
-            message: "You are not authorized to access this page."
-          });
-        }
-      }
-    );
   }
 
   // UPDATE
