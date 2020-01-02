@@ -7,7 +7,12 @@
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include "../components/bootstrap.php";?>
-    <?php $pageLevel=1;include("auth.php");?>
+    <?php 
+      $pageLevel=1;
+      include("auth.php");
+      include("../backend/staff.php");
+      $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
+    ?>
   </head>
 
   <body onload="auth()">
