@@ -153,7 +153,7 @@
                 Click here to see the membership card holders.
               </p>
               <a
-                href="/staff/menu.php"
+                href="/staff/membership.php"
                 class="btn btn-primary"
                 style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;"
                 >Members</a
