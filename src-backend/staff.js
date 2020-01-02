@@ -13,10 +13,9 @@ class Staff {
       (err, result, fields) => {
         if (result.affectedRows > 0) {
           // Add auth info to mongodb
-          this.db.query("SELECT LAST_INSERT_ID()", (err, result, fields) => {
-            var staffID = result["LAST_INSERT_ID()"];
-            this.auth.addAuth(staffID, password);
-          });
+          var staffID = result.insertId;
+          console.log(staffID);
+          this.auth.createAuth(staffID, password, result => {});
           callback({ status: "success" });
         } else {
           callback({ status: "failed", message: result.message });
