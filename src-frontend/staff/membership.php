@@ -95,7 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Membership Registration
             <?php include ("../components/modular/membership_staff.php"); ?>
             <?php
                 // Searching implementation
-
                 if (!empty($_GET["name"]) ) generateTableBodyByName($_GET["name"], !empty($_GET["page"]) ? $_GET["page"] : 1);
                 else generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1);
                 ?>
