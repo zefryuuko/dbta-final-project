@@ -25,18 +25,24 @@
             <table class="table" style="width: 1000px; float: left; margin-left: 55px; margin-top: 10px;">
                 <thead class="thead-dark" style="font-size: 20px">
                     <tr>
-                        <th scope="col" style="width: 200px">ID</th>
-                        <th scope="col" style="width: 150px">Cashier</th>
-                        <th scope="col" style="width: 200px">Price</th>
-                        <th scope="col" style="width: 250px">Date</th>
+                        <th scope="col" style="width: 150px">ID</th>
+                        <th scope="col" style="width: 250px">Branch</th>
+                        <th scope="col" style="width: 300px">Cashier</th>
+                        <th scope="col" style="width: 150px">Check No</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody style="font-size: 18px">
                     <?php include("../components/modular/history_staff.php"); ?>
+                    <?php generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1)?>
                 </tbody>
             </table>
         </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <?php generatePagination(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
+            </ul>
+        </nav>
     </div>
 </body>
 
