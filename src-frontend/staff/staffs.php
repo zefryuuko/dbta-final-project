@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><?php generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1)?>
+                    <?php generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1)?>
                 </tbody>
             </table>
         </div>
