@@ -14,7 +14,6 @@ class Staff {
         if (result.affectedRows > 0) {
           // Add auth info to mongodb
           var staffID = result.insertId;
-          console.log(staffID);
           this.auth.createAuth(staffID, password, result => {});
           callback({ status: "success" });
         } else {
