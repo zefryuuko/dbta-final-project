@@ -8,7 +8,7 @@
     <title>Dashboard</title>
     <?php include "../components/bootstrap.php";?>
     <?php 
-      $pageLevel=1;
+      $pageLevel=0;
       include("auth.php");
       include("../backend/staff.php");
       $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
