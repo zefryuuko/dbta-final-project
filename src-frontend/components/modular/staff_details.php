@@ -19,7 +19,7 @@ function generatePagination($currentPage = 1)
     }
     else
     {
-        echo "<li class='page-item'><a class='page-link' href='"."/staff/staff_details.php?page=".($currentPage - 1)."' tabindex='-1'>Back</a></li>";
+        echo "<li class='page-item'><a class='page-link' href='"."/staff/staffs.php?page=".($currentPage - 1)."' tabindex='-1'>Back</a></li>";
     }
     echo "<li class=\"page-item active\"><span class=\"page-link\">Page ".$currentPage."</span></li>";
     if (count(getStaffs($currentPage + 1)) == 0)
@@ -28,7 +28,7 @@ function generatePagination($currentPage = 1)
     }
     else
     {
-        echo "<li class='page-item'><a class='page-link' href='"."/staff/staff_details.php?page=".($currentPage + 1)."' tabindex='-1'>Next</a></li>";
+        echo "<li class='page-item'><a class='page-link' href='"."/staff/staffs.php?page=".($currentPage + 1)."' tabindex='-1'>Next</a></li>";
     }
 }
 
