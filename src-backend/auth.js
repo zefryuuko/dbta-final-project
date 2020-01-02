@@ -164,6 +164,18 @@ class Auth {
   }
 
   // DELETE
+  removeAuth(id, callback) {
+    this.mdb.collection("staff").deleteOne({ id: id }, (err, result) => {
+      if (result == null) {
+        callback({
+          status: "failed",
+          message: "ID not found."
+        });
+        return;
+      }
+      callback({ status: "success" });
+    });
+  }
 }
 
 module.exports = Auth;
