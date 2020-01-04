@@ -90,7 +90,7 @@ class Card {
   removeCard(cardNo, callback) {
     this.db.query(
       "DELETE FROM StarbucksCard WHERE card_number = ?",
-      [id],
+      [cardNo],
       (err, result, fields) => {
         if (result.affectedRows > 0) {
           callback({ status: "success" });
