@@ -39,6 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Membership Registration
         echo "<script>function membership(){alert('Incorrect input.');window.location.replace('/staff/membership.php');}</script>";
     }
 }
+else  // Member deletion
+{
+    if (!empty($_GET["delete"]) && !empty($_GET["card_number"]))
+    {
+      removeCard($_GET["card_number"]);
+      echo "<script>function membership(){window.location.replace('/staff/membership.php');}</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
