@@ -135,7 +135,7 @@ app.get("/item", (req, res) => {
       res.send(result);
     });
   } else if (req.query.name != undefined) {
-    staff.getItemByName(
+    item.getItemByName(
       req.query.name,
       req.query.count,
       req.query.page,
