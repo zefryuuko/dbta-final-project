@@ -164,13 +164,13 @@ function generateModals($currentPage = 1)
 
 function generateModalsByName($name)
 {
-    $items = getItemsByName($name);
-    foreach ($items as $item)
+    $staffs = getStaffsByName($name);
+    foreach ($staffs as $staff)
     {
         // Edit Modal
         echo "<div
         class=\"modal fade\"
-        id=\"editModal".$item["item_id"]."\"
+        id=\"editModal".$staff["staff_id"]."\"
         tabindex=\"-1\"
         role=\"dialog\"
         aria-labelledby=\"exampleModalLabel\"
@@ -179,7 +179,7 @@ function generateModalsByName($name)
         <div class=\"modal-dialog\" role=\"document\">
           <div class=\"modal-content\">
             <div class=\"modal-header\">
-              <h5 class=\"modal-title\" id=\"exampleModalLabel\">Edit Item</h5>
+              <h5 class=\"modal-title\" id=\"exampleModalLabel\">Edit Staff</h5>
               <button
                 type=\"button\"
                 class=\"close\"
@@ -190,28 +190,26 @@ function generateModalsByName($name)
               </button>
             </div>
             <div class=\"modal-body\">
-              <form action=\"/staff/menu.php\" method=\"POST\">
-                <input type=\"hidden\" class=\"form-control\" name=\"item_id\" value=\"".$item["item_id"]."\"/>
+              <form action=\"/staff/staffs.php\" method=\"POST\">
+                <input type=\"hidden\" class=\"form-control\" name=\"staff_id\" value=\"".$staff["staff_id"]."\"/>
                 <div class=\"form-group\">
                   <label for=\"branch-name\" class=\"col-form-label\"
-                    >Item Name</label
+                    >Staff Name</label
                   >
-                  <input type=\"text\" class=\"form-control\" name=\"item_name\" value=\"".$item["item_name"]."\"/>
+                  <input type=\"text\" class=\"form-control\" name=\"staff_name\" value=\"".$staff["staff_name"]."\"/>
                 </div>
-                <div class=\"form-group\">
-                  <label for=\"message-text\" class=\"col-form-label\"
-                    >Item Price</label
+                <label for=\"branch-name\" class=\"col-form-label\"
+                    >Password</label
                   >
-                  <input type=\"number\" class=\"form-control\" name=\"item_price\" value=\"".$item["item_price"]."\"/>
+                  <input type=\"text\" class=\"form-control\" name=\"staff_password\" value=\"\" placeholder=\"Leave blank to leave it unchanged\"/>
                 </div>
                 <div class=\"form-group\">
                 <label for=\"message-text\" class=\"col-form-label\"
-                  >Item Size</label
+                  >Staff Level</label
                 >
-                <select  class=\"form-control\" name=\"item_size\" value=\"".$item["item_size"]."\">
-                    <option ".($item["item_size"] == "Tall" ? "selected=\"\"" : "" ).">Tall</option>
-                    <option ".($item["item_size"] == "Grande" ? "selected=\"\"" : "" ).">Grande</option>
-                    <option ".($item["item_size"] == "Venti" ? "selected=\"\"" : "" ).">Venti</option>
+                <select class=\"form-control\" name=\"staff_level\">
+                    <option value=\"0\" ".($staff["staff_level"] == "0" ? "selected=\"\"" : "" ).">Admin</option>
+                    <option value=\"1\" ".($staff["staff_level"] == "1" ? "selected=\"\"" : "" ).">Cashier</option>
                 </select>
               </div>
                 <div class=\"modal-footer\">
@@ -235,7 +233,7 @@ function generateModalsByName($name)
       // Delete Modal
       echo "<div
         class=\"modal fade\"
-        id=\"deleteModal".$item["item_id"]."\"
+        id=\"deleteModal".$staff["staff_id"]."\"
         tabindex=\"-1\"
         role=\"dialog\"
         aria-labelledby=\"exampleModalLabel\"
@@ -244,7 +242,7 @@ function generateModalsByName($name)
         <div class=\"modal-dialog\" role=\"document\">
           <div class=\"modal-content\">
             <div class=\"modal-header\">
-              <h5 class=\"modal-title\" id=\"exampleModalLabel\">Delete Item</h5>
+              <h5 class=\"modal-title\" id=\"exampleModalLabel\">Delete Staff</h5>
               <button
                 type=\"button\"
                 class=\"close\"
@@ -255,12 +253,12 @@ function generateModalsByName($name)
               </button>
             </div>
             <div class=\"modal-body\">
-              <form action=\"/staff/menu.php\" method=\"GET\">
+              <form action=\"/staff/staffs.php\" method=\"GET\">
                 <input type=\"hidden\" class=\"form-control\" name=\"delete\" value=\"yes\"/>
-                <input type=\"hidden\" class=\"form-control\" name=\"item_id\" value=\"".$item["item_id"]."\"/>
+                <input type=\"hidden\" class=\"form-control\" name=\"item_id\" value=\"".$staff["staff_id"]."\"/>
                 <div class=\"form-group\">
                   <label for=\"branch-name\" class=\"col-form-label\"
-                    >Are you sure you want to delete ".$item["item_name"]." - ".$item["item_size"]."</label
+                    >Are you sure you want to delete ".$staff["staff_name"]." - ".($staff["staff_level"] == 0 ? "Admin" : "Cashier")."</label
                   >
                 </div>
                 <div class=\"modal-footer\">
