@@ -23,7 +23,7 @@ function callAPI($method, $url, $data = false)
             curl_setopt($curl, CURLOPT_PUT, 1);
             break;
         case "DELETE":
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
 
             if ($data)
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
