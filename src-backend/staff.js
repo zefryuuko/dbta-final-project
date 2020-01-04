@@ -62,7 +62,8 @@ class Staff {
       [name, level, id],
       (err, result, fields) => {
         if (result.affectedRows > 0) {
-          this.auth.updateAuth(parseInt(id), password, () => {});
+          if (password.length > 0)
+            this.auth.updateAuth(parseInt(id), password, () => {});
           callback({ status: "success" });
         } else {
           callback({ status: "failed", message: result.message });
