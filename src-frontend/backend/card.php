@@ -16,6 +16,13 @@ function updateCard($card_number, $cardholder_name, $balance)
     return json_decode($raw_data, true);
 }
 
+function removeCard($card_number)
+{
+    $data = "no=".$card_number;
+    $raw_data = callAPI("DELETE", "http://localhost:8081/card", $data);
+    return json_decode($raw_data, true);
+}
+
 function getCards($page = 1)
 {
     global $showCount;
