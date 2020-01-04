@@ -1,3 +1,46 @@
+<?php
+include_once("../backend/branch.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") // Branch Add
+{
+    if (!empty($_POST["add"]))
+    {
+      $status = addBranch($_POST["branch_name"], $_POST["branch_phone"]);
+        if ($status["status"] == "success")
+        {
+            echo "<script>function branch(){alert('Added branch successfully.');window.location.replace('/staff/branch.php');}</script>";
+        }
+        else
+        {
+            echo "<script>function branch(){alert('".$status["message"]."');window.location.replace('/staff/branch.php');}</script>";
+        }
+    }
+    else if (!empty($_POST["branch_name"]) && !empty($_POST["branch_phone"]))
+    {
+        $status = updateBranch($_POST["branch_id"], $_POST["branch_name"], $_POST["branch_phone"]);
+        if ($status["status"] == "success")
+        {
+            echo "<script>function branch(){alert('Updated branch successfully.');window.location.replace('/staff/branch.php');}</script>";
+        }
+        else
+        {
+            echo "<script>function branch(){alert('".$status["message"]."');window.location.replace('/staff/branch.php');}</script>";
+        }
+    }
+    else 
+    {
+        echo "<script>function branch(){alert('Incorrect input.');window.location.replace('/staff/branch.php');}</script>";
+    }
+}
+else  // Branch deletion
+{
+    if (!empty($_GET["delete"]) && !empty($_GET["branch_id"]))
+    {
+      removeBranch($_GET["branch_id"]);
+      echo "<script>function branch(){window.location.replace('/staff/branch.php');}</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,24 +56,25 @@
     ?>
 </head>
 
-<body onload="auth()">
+<body onload="try {auth()}catch(e){} branch()">
     <div class="container">
       <?php include ("../components/navbar/navbar_staff.php");?>
-      <div class="bodyLeft" style="float:left;">
+      <div class="bodyLeft">
         <nav
           class="navbar navbar-light"
-          style="width: 650px; float: left; padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;"
+          style="width: 650px; padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;"
         >
           <a class="navbar-brand" style="font-size:25px; font-weight: bold;"
             >Branch</a
           >
-          <form
+          <form action="/staff/branch.php" method="GET"
             class="form-inline"
             style="margin-top: 10px; margin-right: 80px;"
           >
             <input
               class="form-control mr-sm-2"
               type="search"
+              name="name"
               placeholder="Search"
               aria-label="Search"
             />
@@ -46,36 +90,42 @@
         <div class="table-responsive">
           <table
             class="table"
-            style="width: 550px; float: left; margin-left: 55px;"
+            style=""
           >
             <thead class="thead-dark" style="font-size: 20px">
               <tr>
                 <th scope="col" style="width: 70px">ID</th>
-                <th scope="col" style="width: 150px">Name</th>
-                <th scope="col" style="width: 170px">Telephone</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col" style="width: 250px">Name</th>
+                <th scope="col" style="width: 250px">Telephone</th>
+                <th scope="col" style="width: 25px"></th>
+                <th scope="col" style="width: 25px"></th>
               </tr>
             </thead>
             <tbody style="font-size: 18px">
             <?php include ("../components/modular/branch.php");?>
-            <?php include ("../components/modular/branch.php");?>
-            <?php include ("../components/modular/branch.php");?>
+            <?php
+                // Searching implementation
+                if (!empty($_GET["name"]) ) generateTableBodyByName($_GET["name"], !empty($_GET["page"]) ? $_GET["page"] : 1);
+                else generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1);
+            ?>
           </tbody>
           </table>
         </div>
       </div>
-
+      <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <?php if (empty($_GET["name"])) generatePagination(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
+            </ul>
+        </nav>
       <div
         class="bodyRight"
-        style="float: right; margin-right: -120px; margin-top: 30px;"
+        style=" margin-top: 30px;"
       >
         <div
           class="box"
           style="width: 400px;
                 height: 450px;
                 padding: 40px;
-                margin: -380px 150px auto auto;
                 border-radius: 5px;
                 text-align: center;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
@@ -85,31 +135,41 @@
           >
             Add Branch
           </p>
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Branch Name"
-            style="padding: 10px;"
-          />
-          <br />
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Branch Telephone"
-            style="padding: 10px;"
-          />
-          <br />
+          <form action="/staff/branch.php" method="POST">
+              <input type="hidden" name="add" value="add"/>
+              <input
+                class="form-control"
+                type="text"
+                name="branch_name"
+                placeholder="Branch Name"
+                style="padding: 10px;"
+              />
+              <br />
+              <input
+                class="form-control"
+                type="text"
+                name="branch_phone"
+                placeholder="Branch Telephone"
+                style="padding: 10px;"
+              />
+              <br />
 
-          <br /><br /><br />
-          <button
-            type="submit"
-            style="width: 100%; background-color: #242625; border-color:#242625; font-weight: bold; padding: 10px;"
-            class="btn btn-primary"
-          >
-            Add Item
-          </button>
+              <br /><br /><br />
+              <button
+                type="submit"
+                style="width: 100%; background-color: #242625; border-color:#242625; font-weight: bold; padding: 10px;"
+                class="btn btn-primary"
+              >
+                Add Item
+              </button>
+          </form>
         </div>
       </div>
     </div>
+    <?php
+      // Modals
+      if (!empty($_GET["name"])) generateModalsByName($_GET["name"], !empty($_GET["page"]) ? $_GET["page"] : 1);
+      else generateModals(!empty($_GET["page"]) ? $_GET["page"] : 1);
+    ?>
   </body>
 </html>
