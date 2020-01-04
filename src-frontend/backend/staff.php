@@ -33,7 +33,7 @@ function getStaffs($page = 1)
 
 function getStaffByID($staff_id)
 {
-    $raw_data = callAPI("GET", "http://localhost:8081/staff?id=".$item_id);
+    $raw_data = callAPI("GET", "http://localhost:8081/staff?id=".$staff_id);
     return json_decode($raw_data, true);
 }
 
