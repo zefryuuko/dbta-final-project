@@ -62,14 +62,14 @@ else  // Branch deletion
       <div class="bodyLeft">
         <nav
           class="navbar navbar-light"
-          style="width: 650px; padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;"
+          style=""
         >
           <a class="navbar-brand" style="font-size:25px; font-weight: bold;"
             >Branch</a
           >
           <form action="/staff/branch.php" method="GET"
             class="form-inline"
-            style="margin-top: 10px; margin-right: 80px;"
+            style=""
           >
             <input
               class="form-control mr-sm-2"

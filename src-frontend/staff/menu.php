@@ -61,9 +61,9 @@ else  // Item deletion
     <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
         <div class="bodyLeft">
-            <nav class="navbar navbar-light" style="width: 650px;  padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;">
+            <nav class="navbar navbar-light" style="">
                 <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Items</a>
-                <form class="form-inline" style="margin-top: 10px; margin-right: 80px;" action="/staff/menu.php">
+                <form class="form-inline" style="" action="/staff/menu.php">
                     <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-light btn-outline-dark my-2 my-sm-0" type="submit">
                         Search

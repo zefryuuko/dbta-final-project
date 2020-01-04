@@ -69,14 +69,14 @@ else  // Member deletion
       <div class="bodyLeft" >
         <nav
           class="navbar navbar-light"
-          style="width: 650px;padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;"
+          style=""
         >
           <a class="navbar-brand" style="font-size:25px; font-weight: bold;"
             >Membership</a
           >
           <form
             class="form-inline"
-            style="margin-top: 10px; margin-right: 80px;"
+            style=""
             action="membership.php" method="GET" enctype="application/x-www-form-urlencoded"
           >
             <input
