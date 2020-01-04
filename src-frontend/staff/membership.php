@@ -155,7 +155,7 @@ else  // Member deletion
           <br />
           <input
             class="form-control"
-            type="text"
+            type="number"
             name="balance"
             placeholder="Starting Balance"
             style="padding: 10px;"

@@ -82,7 +82,7 @@ function generateModals($currentPage = 1)
                   <label for=\"message-text\" class=\"col-form-label\"
                     >Balance</label
                   >
-                  <input type=\"text\" class=\"form-control\" name=\"card_balance\" value=\"".$card["card_balance"]."\"/>
+                  <input type=\"number\" class=\"form-control\" name=\"card_balance\" value=\"".$card["card_balance"]."\"/>
                 </div>
                 <div class=\"modal-footer\">
                   <button
@@ -187,7 +187,7 @@ function generateModalsByName($name)
                   <label for=\"branch-name\" class=\"col-form-label\"
                     >Card Holder Name</label
                   >
-                  <input type=\"text\" class=\"form-control\" name=\"cardholder_name\" value=\"".$card["cardholder_name"]."\"/>
+                  <input type=\"number\" class=\"form-control\" name=\"cardholder_name\" value=\"".$card["cardholder_name"]."\"/>
                 </div>
                 <div class=\"form-group\">
                   <label for=\"message-text\" class=\"col-form-label\"
