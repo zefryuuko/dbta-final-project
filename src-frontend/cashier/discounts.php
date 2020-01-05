@@ -7,9 +7,15 @@
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include ("../components/bootstrap.php");?>
-  </head>
+    <?php 
+      $pageLevel = 1;
+      include("auth.php");
+      include("../backend/staff.php");
+      $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
+    ?>
+    </head>
 
-  <body>
+    <body onload="try{auth()}catch(e){}">
     <div class="container">
       <!-- Button trigger modal -->
       <button
