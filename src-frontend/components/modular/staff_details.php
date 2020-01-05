@@ -81,7 +81,7 @@ function generateModals($currentPage = 1)
                 <label for=\"branch-name\" class=\"col-form-label\"
                     >Password</label
                   >
-                  <input type=\"text\" class=\"form-control\" name=\"staff_password\" value=\"\" placeholder=\"Leave blank to leave it unchanged\"/>
+                  <input type=\"password\" class=\"form-control\" name=\"staff_password\" value=\"\" placeholder=\"Leave blank to leave it unchanged\"/>
                 </div>
                 <div class=\"form-group\">
                 <label for=\"message-text\" class=\"col-form-label\"
@@ -201,7 +201,7 @@ function generateModalsByName($name)
                 <label for=\"branch-name\" class=\"col-form-label\"
                     >Password</label
                   >
-                  <input type=\"text\" class=\"form-control\" name=\"staff_password\" value=\"\" placeholder=\"Leave blank to leave it unchanged\"/>
+                  <input type=\"password\" class=\"form-control\" name=\"staff_password\" value=\"\" placeholder=\"Leave blank to leave it unchanged\"/>
                 </div>
                 <div class=\"form-group\">
                 <label for=\"message-text\" class=\"col-form-label\"
