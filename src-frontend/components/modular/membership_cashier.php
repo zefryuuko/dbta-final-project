@@ -54,7 +54,7 @@ function generateModalsByNo($no)
                   <label for=\"message-text\" class=\"col-form-label\"
                     >Top Up Balance</label
                   >
-                  <input type=\"number\" class=\"form-control\" name=\"topup_balance\" value=\"\"/>
+                  <input type=\"number\" min=\"0\" max=\"1000000\" class=\"form-control\" name=\"topup_balance\" value=\"\"/>
                 </div>
                 <div class=\"modal-footer\">
                   <button
