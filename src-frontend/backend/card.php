@@ -16,6 +16,13 @@ function updateCard($card_number, $cardholder_name, $balance)
     return json_decode($raw_data, true);
 }
 
+function topupCard($card_number, $value)
+{
+    $data = "task=topup&no=".$card_number."&balance=".$balance;
+    $raw_data = callAPI("POST", "http://localhost:8081/card", $data);
+    return json_decode($raw_data, true);
+}
+
 function removeCard($card_number)
 {
     $data = "no=".$card_number;
