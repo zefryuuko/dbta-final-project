@@ -69,12 +69,16 @@
             if (this.readyState == 4 && this.status == 200) {
                 var element = JSON.parse(this.responseText)[0];
                 var uid = generateID(8);
-                var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td>Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" style="width: 45%"></a></td></tr>`
+                var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td id="price-${uid}">Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" style="width: 45%"></a></td></tr>`
                 var formData = `<input type="hidden" name="item" id="item-${uid}" value="${element["item_id"]}"/>`;
                 var formDiscountData = `<input type="hidden" name="discount" id="discount-${uid}" value=""/>`;
                 document.getElementById("transactionTable").innerHTML += tableRow;
                 document.getElementById("orderDetails").innerHTML += formData;
                 document.getElementById("orderDetails").innerHTML += formDiscountData;
+
+                // Update subtotal
+                var newSubtotal = parseInt(document.getElementById("subTotal").innerHTML.slice(4)) + element["item_price"];
+                document.getElementById("subTotal").innerHTML = "Rp. " + newSubtotal.toString();
             }
         }
         xhttp.open("GET", `http://localhost:8081/item?id=${id}`);
@@ -82,9 +86,14 @@
     }
 
     function removeItem(uid) {
+        // Update subtotal
+        var newSubtotal = parseInt(document.getElementById("subTotal").innerHTML.slice(4)) - parseInt(document.getElementById("price-" + uid).innerHTML.slice(4));
+        document.getElementById("subTotal").innerHTML = "Rp. " + newSubtotal.toString();
+        
         document.getElementById("table-" + uid).remove();  // Delete table entry
         document.getElementById("item-" + uid).remove();  // Delete item form entry
         document.getElementById("discount-" + uid).remove();  // Delete discount form entry
+
     }
     </script>
     </head>
@@ -124,9 +133,7 @@
                             <th scope="col" style="width: 240px; font-size: 25px; font-weight: bold;">
                                 Sub Total:
                             </th>
-                            <th scope="col" style=" font-size: 25px; font-weight: bold;">
-                                Rp xxx.xxx.xxx
-                            </th>
+                            <th scope="col" id="subTotal" style=" font-size: 25px; font-weight: bold;">Rp. 0</th>
                             <th scope="col"></th>
                         </tr>
                     </tbody>
