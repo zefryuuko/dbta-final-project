@@ -356,6 +356,15 @@ app.get("/bill", (req, res) => {
     bill.getBillByID(req.query.id, result => {
       res.send(result);
     });
+  } else if (req.query.staff != undefined) {
+    bill.getBillByStaffID(
+      req.query.staff,
+      req.query.count,
+      req.query.page,
+      result => {
+        res.send(result);
+      }
+    );
   } else {
     bill.getBills(req.query.count, req.query.page, result => {
       res.send(result);
