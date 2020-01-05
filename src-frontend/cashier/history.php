@@ -9,7 +9,7 @@
     <title>Dashboard</title>
     <?php include("../components/bootstrap.php"); ?>
     <?php 
-      $pageLevel = 0;
+      $pageLevel = 1;
       include("auth.php");
     ?>
 </head>
