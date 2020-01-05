@@ -71,8 +71,10 @@
                 var uid = generateID(8);
                 var tableRow = `<tr id="${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td>Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" style="width: 45%"></a></td></tr>`
                 var formData = `<input type="hidden" name="item" id="${uid}" value="${element["item_id"]}"/>`;
+                var formDiscountData = `<input type="hidden" name="discount" id="${uid}" value=""/>`;
                 document.getElementById("transactionTable").innerHTML += tableRow;
                 document.getElementById("orderDetails").innerHTML += formData;
+                document.getElementById("orderDetails").innerHTML += formDiscountData;
             }
         }
         xhttp.open("GET", `http://localhost:8081/item?id=${id}`);
@@ -81,7 +83,8 @@
 
     function removeItem(uid) {
         document.getElementById(uid).remove();  // Delete table entry
-        document.getElementById(uid).remove();  // Delete form entry
+        document.getElementById(uid).remove();  // Delete item form entry
+        document.getElementById(uid).remove();  // Delete discount form entry
     }
     </script>
     </head>
@@ -106,7 +109,7 @@
                         </tr>
                     </thead>
                     <tbody id="transactionTable" style="font-size: 18px">
-                        <?php include("../components/modular/new_order.php"); ?>
+
                     </tbody>
                 </table>
             </div>
@@ -164,7 +167,6 @@
                         </tr>
                     </thead>
                     <tbody id="itemsTable" style="font-size: 18px">
-                        <?php include("../components/modular/menu_order.php"); ?>
                     </tbody>
                 </table>
             </div>
