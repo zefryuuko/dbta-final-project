@@ -73,7 +73,7 @@ else  // Staff deletion
             </nav>
         <div class="table-responsive">
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead-dark" style="font-size: 20px">
                     <tr>
                         <th scope="col" width="100px">ID</th>
                         <th scope="col" width="350px">Name</th>
@@ -82,7 +82,7 @@ else  // Staff deletion
                         <th scope="col" width="50px"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="font-size: 18px">
                 <?php
                         // Searching implementation
                         if (!empty($_GET["name"]) ) generateTableBodyByName($_GET["name"], !empty($_GET["page"]) ? $_GET["page"] : 1);
