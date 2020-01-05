@@ -15,7 +15,7 @@
     ?>
     </head>
 
-    <body onload="try{auth()}catch(e){} staff()">
+    <body onload="try{auth()}catch(e){}">
       <div class="container">
         <?php include ("../components/navbar/navbar_welcome.php");?>
         <div class="card-deck" style="width:100%; margin: 50px auto auto auto;">
