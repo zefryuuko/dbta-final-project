@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Staff Add
             echo "<script>function staff(){alert('".$status["message"]."');window.location.replace('/staff/staffs.php');}</script>";
         }
     }
-    else if (!empty($_POST["staff_name"]) && !empty($_POST["staff_level"]))
+    else if (!empty($_POST["staff_name"]) && isset($_POST["staff_level"]))
     {
         $status = updateStaff($_POST["staff_id"], $_POST["staff_name"], $_POST["staff_level"], $_POST["staff_password"]);
         if ($status["status"] == "success")
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Staff Add
     }
     else 
     {
-        echo "<script>function staff(){alert('Incorrect input.');window.location.replace('/staff/staffs.php');}</script>";
+        echo "<script>function staff(){alert('Incorrect input.".$_POST["staff_level"]."');window.location.replace('/staff/staffs.php');}</script>";
     }
 }
 else  // Staff deletion
