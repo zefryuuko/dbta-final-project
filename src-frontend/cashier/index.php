@@ -10,6 +10,8 @@
     <?php 
       $pageLevel = 1;
       include("auth.php");
+      include("../backend/staff.php");
+      $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
     ?>
     </head>
 
