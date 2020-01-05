@@ -18,22 +18,24 @@
     <body onload="try{auth()}catch(e){}">
     <div class="container">
       <?php include ("../components/navbar/navbar_cashier.php");?>
-      <div class="bodyLeft" style="float:left;">
+      <div class="bodyLeft">
         <nav
           class="navbar navbar-light"
-          style="width: 650px; float: left; padding: 10px; margin-left: 45px; margin-top:20px; margin-bottom: 16px;"
+          style=""
         >
           <a class="navbar-brand" style="font-size:25px; font-weight: bold;"
             >Membership</a
           >
           <form
             class="form-inline"
-            style="margin-top: 10px; margin-right: 80px;"
+            style=""
+            action="/cashier/membership.php"
           >
             <input
               class="form-control mr-sm-2"
               type="search"
-              placeholder="Search"
+              name="no"
+              placeholder="Card Number"
               aria-label="Search"
             />
             <button
@@ -48,25 +50,31 @@
         <div class="table-responsive">
           <table
             class="table"
-            style="width: 550px; float: left; margin-left: 55px;"
+            style=""
           >
             <thead class="thead-dark" style="font-size: 20px">
               <tr>
-                <th scope="col" style="width: 70px">Number</th>
-                <th scope="col" style="width: 200px">Name</th>
-                <th scope="col" style="width: 120px">Balance</th>
-                <th scope="col"></th>
+                <th scope="col" style="width: 250px">Number</th>
+                <th scope="col" style="width: 350px">Name</th>
+                <th scope="col" style="width: 300px">Balance</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody style="font-size: 18px">
-            <?php include ("../components/modular/membership_cashier.php");?>
-            <?php include ("../components/modular/membership_cashier.php");?>
-            <?php include ("../components/modular/membership_cashier.php");?>
+            <?php include ("../components/modular/membership_cashier.php"); ?>
+            <?php
+                // Searching implementation
+                if (!empty($_GET["no"]) ) generateTableBodyByNo($_GET["no"], !empty($_GET["page"]) ? $_GET["page"] : 1);
+                else generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1);
+                ?>
           </tbody>
           </table>
         </div>
       </div>
     </div>
+    <?php
+      // Modals
+      if (!empty($_GET["no"])) generateModalsByNo($_GET["no"], !empty($_GET["page"]) ? $_GET["page"] : 1);
+    ?>
   </body>
 </html>
