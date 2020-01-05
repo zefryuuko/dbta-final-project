@@ -99,7 +99,7 @@ class Bill {
   getBillByStaffID(id, count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      `SELECT b.bill_id, r.branch_name, c.staff_name, b.check_number FROM Bill b LEFT JOIN Staff c ON c.staff_id = b.cashier_id LEFT JOIN Branch r ON r.branch_id = b.branch_id WHERE c.cashier_id = ? LIMIT ${start}, ${count}`,
+      `SELECT b.bill_id, r.branch_name, c.staff_name, b.check_number FROM Bill b LEFT JOIN Staff c ON c.staff_id = b.cashier_id LEFT JOIN Branch r ON r.branch_id = b.branch_id WHERE b.cashier_id = ? LIMIT ${start}, ${count}`,
       [id],
       (err, result, fields) => {
         if (result != undefined) callback(result);
