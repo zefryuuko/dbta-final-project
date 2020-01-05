@@ -8,37 +8,46 @@
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include("../components/bootstrap.php"); ?>
-<?php 
-    $pageLevel = 1;
-    include("auth.php");
-    include("../backend/staff.php");
-    $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
-?>
+    <?php 
+      $pageLevel = 0;
+      include("auth.php");
+    ?>
 </head>
 
-<body onload="try{auth()}catch(e){}">
+<body onload="auth()">
     <div class="container">
         <?php include("../components/navbar/navbar_cashier.php"); ?>
-
-        <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
-            Transaction History
-        </p>
+        <nav class="navbar navbar-light" style=" ">
+                <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Transactions</a>
+                <form class="form-inline" style="" action="/staff/staffs.php">
+                    <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-light btn-outline-dark my-2 my-sm-0" type="submit">
+                        Search
+                    </button>
+                </form>
+            </nav>
         <div class="table-responsive">
-        <table class="table" style="width: 1000px; float: left; margin-left: 55px; margin-top: 10px;">
+            <table class="table" style="">
                 <thead class="thead-dark" style="font-size: 20px">
                     <tr>
-                        <th scope="col" style="width: 200px">ID</th>
-                        <th scope="col" style="width: 150px">Cashier</th>
-                        <th scope="col" style="width: 200px">Price</th>
-                        <th scope="col" style="width: 250px">Date</th>
+                        <th scope="col" style="width: 150px">ID</th>
+                        <th scope="col" style="width: 250px">Branch</th>
+                        <th scope="col" style="width: 300px">Cashier</th>
+                        <th scope="col" style="width: 150px">Check No</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody style="font-size: 18px">
                     <?php include("../components/modular/history_cashier.php"); ?>
+                    <?php generateTableBody(!empty($_GET["page"]) ? $_GET["page"] : 1)?>
                 </tbody>
             </table>
         </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <?php generatePagination(!empty($_GET["page"]) ? $_GET["page"] : 1) ?>
+            </ul>
+        </nav>
     </div>
 </body>
 
