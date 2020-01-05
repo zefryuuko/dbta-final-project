@@ -14,4 +14,4 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") // Handle auth check
         echo "<script>function auth(){window.location.replace('/cashier/login.php');}</script>";
     }
 }
-$username = !empty($_GET["page"]);
+$SERVER_BRANCH_ID = 1;
