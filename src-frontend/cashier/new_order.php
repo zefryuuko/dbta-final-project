@@ -21,12 +21,12 @@
     <div class="container">
         <?php include("../components/navbar/navbar_cashier.php"); ?>
 
-        <div class="bodyLeft" style="float:left;">
-        <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 35px; margin-top:20px;">
+        <div class="bodyLeft" style="float:left; ">
+        <p style="font-size:25px; margin-top:13px; font-weight: bold;">
                 Current Transaction
             </p>
             <div class="table-responsive">
-                <table class="table" style="width: 550px; float: left; margin-left: 45px;">
+                <table class="table" style="width: 550px; float: left;">
                     <thead class="thead-dark" style="font-size: 20px">
                         <tr>
                             <th scope="col" style="width: 40px">#</th>
@@ -48,7 +48,7 @@
             <br /><br />
 
             <div class="table-responsive">
-            <table class="table" style="width: 550px; float: left; margin-left: 45px;">
+            <table class="table" style="width: 550px; float: left;">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" style="width: 240px; font-size: 25px; font-weight: bold;">
@@ -64,20 +64,20 @@
             </div>
             <!--Subtotal table-->
 
-            <a type="button" href="/cashier/checkout.php" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="margin-left: 45px; width: 60%">
+            <button type="button" href="/cashier/checkout.php" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 60%">
                 Close Order
             </a>
 
-            <a type="button" href="/cashier/index.php" class="btn btn-danger btn-primary btn-lg" style="margin-left: 20px; width: 28%">
+            <button type="button" onclick="window.location.replace('/cashier/index.php')" class="btn btn-danger btn-lg" style="margin-left:22px; width: 35%">
                 Cancel Order
             </a>
         </div>
         <!--End of Left Body-->
 
         <div class="bodyRight" style="float:right;">
-        <nav class="navbar navbar-light" style="font-size:25px; padding: 10px; font-weight: bold; margin-top:20px; margin-right: 100px;">
+        <nav class="navbar navbar-light" style="font-size:25px; padding: 10px; font-weight: bold; ">
                 <a class="navbar-brand">Items</a>
-                <form class="form-inline" style="margin-top: 10px;">
+                <form class="form-inline" style="">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-light btn-outline-dark my-2 my-sm-0" type="submit">
                         Search
