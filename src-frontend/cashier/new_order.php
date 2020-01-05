@@ -69,9 +69,9 @@
             if (this.readyState == 4 && this.status == 200) {
                 var element = JSON.parse(this.responseText)[0];
                 var uid = generateID(8);
-                var tableRow = `<tr id="${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td>Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" style="width: 45%"></a></td></tr>`
-                var formData = `<input type="hidden" name="item" id="${uid}" value="${element["item_id"]}"/>`;
-                var formDiscountData = `<input type="hidden" name="discount" id="${uid}" value=""/>`;
+                var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td>Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" style="width: 45%"></a></td></tr>`
+                var formData = `<input type="hidden" name="item" id="item-${uid}" value="${element["item_id"]}"/>`;
+                var formDiscountData = `<input type="hidden" name="discount" id="discount-${uid}" value=""/>`;
                 document.getElementById("transactionTable").innerHTML += tableRow;
                 document.getElementById("orderDetails").innerHTML += formData;
                 document.getElementById("orderDetails").innerHTML += formDiscountData;
@@ -82,9 +82,9 @@
     }
 
     function removeItem(uid) {
-        document.getElementById(uid).remove();  // Delete table entry
-        document.getElementById(uid).remove();  // Delete item form entry
-        document.getElementById(uid).remove();  // Delete discount form entry
+        document.getElementById("table-" + uid).remove();  // Delete table entry
+        document.getElementById("item-" + uid).remove();  // Delete item form entry
+        document.getElementById("discount" + uid).remove();  // Delete discount form entry
     }
     </script>
     </head>
