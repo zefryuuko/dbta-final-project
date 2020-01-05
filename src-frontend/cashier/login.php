@@ -12,7 +12,7 @@
 
 <body style="background-color: #006335;">
     <div class="container">
-        <?php include("../components/navbar_login.php"); ?>
+        <?php include("../components/navbar/navbar_login.php"); ?>
 
         <div class="box" style="width: 500px;
         height: 500px;
