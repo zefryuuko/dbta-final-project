@@ -1,3 +1,25 @@
+<?php
+include_once("../backend/card.php");
+if ($_SERVER["REQUEST_METHOD"] == "POST") // Top up
+{
+    if (!empty($_POST["card_number"]) && !empty($_POST["topup_balance"]))
+    {
+      $status = topupCard($_POST["card_number"], $_POST["topup_balance"]);
+        if ($status["status"] == "success")
+        {
+            echo "<script>function membership(){alert('Top up success.');window.location.replace('/cashier/membership.php');}</script>";
+        }
+        else
+        {
+            echo "<script>function membership(){alert('".$status["message"]."');window.location.replace('/cashier/membership.php');}</script>";
+        }
+    }
+    else 
+    {
+        echo "<script>function membership(){alert('Incorrect input.');window.location.replace('/cashier/membership.php');}</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +37,7 @@
     ?>
     </head>
 
-    <body onload="try{auth()}catch(e){}">
+    <body onload="try{auth()}catch(e){} membership()">
     <div class="container">
       <?php include ("../components/navbar/navbar_cashier.php");?>
       <div class="bodyLeft">
