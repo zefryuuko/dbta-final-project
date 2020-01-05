@@ -1,3 +1,38 @@
+<?php
+$pageLevel = 1;
+include("../backend/auth.php");
+if ($_SERVER["REQUEST_METHOD"] == "GET") // Handle auth check
+{
+    if (isset($_COOKIE["id"]) && isset($_COOKIE["session"]))
+    {
+        $status = json_decode(isAuthenticated($pageLevel, $_COOKIE["id"], $_COOKIE["session"]));
+        if ($status->status == "success")
+            echo "<script>function auth(){window.location.replace('/cashier');}</script>";
+    }
+}
+else if ($_SERVER["REQUEST_METHOD"] == "POST") // Handle authentication
+{
+    if (!empty($_POST["id"]) && !empty($_POST["pass"]))
+    {
+        $status = json_decode(authenticate($_POST["level"], $_POST["id"], md5($_POST["pass"])), true);
+        if ($status["status"] == "success")
+        {
+            // Set cookie
+            setcookie("id", $_POST["id"], time() + (86400 * 30), "/");
+            setcookie("session", $status["session"], time() + (86400 * 30), "/");
+            echo "<body onload=\"auth()\"><script>function auth(){window.location.replace('/cashier');}</script>";
+        }
+        else
+        {
+            echo "<body onload=\"auth()\"><script>function auth(){alert('".$status["message"]."');window.location.replace('/cashier/login.php');}</script>";
+        }
+    }
+    else 
+    {
+        echo "<script>function auth(){alert('Incorrect ID and or password.');window.location.replace('/cashier/login.php');}</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +45,7 @@
     <?php include("../components/bootstrap.php"); ?>
 </head>
 
-<body style="background-color: #006335;">
+<body style="background-color: #006335;" onload="auth()">
     <div class="container">
         <?php include("../components/navbar/navbar_login.php"); ?>
 
@@ -29,7 +64,8 @@
             border-radius: 5px;
             text-align: center;
             margin: 0px !important;">
-                <form action="#">
+                <form action="/cashier/login.php" method="POST">
+                    <input type="hidden" name="level" value="1"/>
                     <h1>Sign In</h1>
                     <h3>Welcome back to</h3>
                     <h3>Starbucks Dashboard!</h3>
@@ -37,13 +73,13 @@
                     <!--Staff ID Number-->
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="inputEmail3" placeholder="Staff ID Number" />
+                            <input type="text" class="form-control" name="id" id="inputEmail3" placeholder="Staff ID Number" />
                         </div>
                     </div>
                     <!--Password-->
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" />
+                            <input type="password" class="form-control" name="pass" id="inputPassword3" placeholder="Password" />
                         </div>
                         <!--Submit Button-->
                     </div>
