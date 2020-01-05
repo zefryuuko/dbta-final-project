@@ -19,6 +19,6 @@ function getBillByID($id)
 function getBillsByStaffID($id, $page)
 {
     global $showCount;
-    $raw_data = callAPI("GET", "http://localhost:8081/bill?staff=".$id."count=".$showCount."&page=".$page);
+    $raw_data = callAPI("GET", "http://localhost:8081/bill?staff=".$id."&count=".$showCount."&page=".$page);
     return json_decode($raw_data, true);
 }
