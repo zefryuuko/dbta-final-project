@@ -70,7 +70,7 @@ class Card {
       "SELECT card_balance FROM StarbucksCard WHERE card_number = ?",
       [cardNo],
       (err, result, fields) => {
-        var balance = result + topUpValue;
+        var balance = result[0]["card_balance"] + parseInt(topUpValue);
         this.db.query(
           "UPDATE StarbucksCard SET card_balance = ? WHERE card_number = ?",
           [balance, cardNo],
