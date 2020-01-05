@@ -38,6 +38,7 @@ var auth;
 var staff;
 MongoClient.connect(
   `mongodb://${authInfo["user_mongo"]}:${authInfo["pass_mongo"]}@${authInfo["host"]}`,
+  { useUnifiedTopology: true },
   (err, client) => {
     if (err) console.log(err);
     mdb = client.db(authInfo["database_mongo"]);
