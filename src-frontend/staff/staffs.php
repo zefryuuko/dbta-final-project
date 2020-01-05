@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Staff Add
     }
     else if (!empty($_POST["staff_name"]) && isset($_POST["staff_level"]))
     {
-        $status = updateStaff($_POST["staff_id"], $_POST["staff_name"], $_POST["staff_level"], $_POST["staff_password"]);
+        $status = updateStaff($_POST["staff_id"], $_POST["staff_name"], $_POST["staff_level"], md5($_POST["staff_password"]));
         if ($status["status"] == "success")
         {
             echo "<script>function staff(){alert('Updated staff successfully.');window.location.replace('/staff/staffs.php');}</script>";
