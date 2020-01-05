@@ -84,7 +84,7 @@
     function removeItem(uid) {
         document.getElementById("table-" + uid).remove();  // Delete table entry
         document.getElementById("item-" + uid).remove();  // Delete item form entry
-        document.getElementById("discount" + uid).remove();  // Delete discount form entry
+        document.getElementById("discount-" + uid).remove();  // Delete discount form entry
     }
     </script>
     </head>
