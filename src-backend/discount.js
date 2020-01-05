@@ -6,7 +6,7 @@ class Discount {
   // CREATE
   addDiscount(name, percentage, callback) {
     this.db.query(
-      "INSERT INTO Discount (discount_name, discount_percentage, item_price) VALUES (?, ?)",
+      "INSERT INTO Discount (discount_name, discount_percentage) VALUES (?, ?)",
       [name, percentage],
       (err, result, fields) => {
         if (result.affectedRows > 0) {
@@ -42,7 +42,7 @@ class Discount {
   getDiscountByName(name, count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      `SELECT * FROM Discount WHERE item_name LIKE ? LIMIT ${start}, ${count}`,
+      `SELECT * FROM Discount WHERE discount_name LIKE ?`,
       ["%" + name + "%"],
       (err, result, fields) => {
         callback(result);
@@ -53,7 +53,7 @@ class Discount {
   // UPDATE
   updateDiscount(id, name, percentage, callback) {
     this.db.query(
-      "UPDATE Discount SET discount_name = ?, discount_percentage = ? WHERE item_id = ?",
+      "UPDATE Discount SET discount_name = ?, discount_percentage = ? WHERE discount_id = ?",
       [name, percentage, id],
       (err, result, fields) => {
         if (result.affectedRows > 0) {

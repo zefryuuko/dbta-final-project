@@ -42,7 +42,7 @@ class Card {
   getCardByCardholderName(name, count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      "SELECT * FROM StarbucksCard WHERE cardholder_name LIKE ? LIMIT ?, ?",
+      "SELECT * FROM StarbucksCard WHERE cardholder_name LIKE ?",
       ["%" + name + "%", start, count],
       (err, result, fields) => {
         callback(result);

@@ -47,7 +47,7 @@ class Staff {
   getStaffByName(name, count = 5, page = 1, callback) {
     var start = count * (page - 1);
     this.db.query(
-      `SELECT * FROM Staff WHERE staff_name LIKE ? LIMIT ${start}, ${count}`,
+      `SELECT * FROM Staff WHERE staff_name LIKE ?`,
       ["%" + name + "%"],
       (err, result, fields) => {
         callback(result);
