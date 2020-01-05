@@ -223,7 +223,7 @@ app.post("/discount", (req, res) => {
   } else if (req.body.task == "update") {
     if (req.body.id == undefined)
       res.send({ status: "failed", message: "missing id parameter." });
-    staff.updateStaff(
+    discount.updateDiscount(
       req.body.id,
       req.body.name,
       req.body.percentage,
