@@ -335,8 +335,8 @@ app.post("/card", (req, res) => {
       res.send(result);
     });
   } else if (req.body.task == "topup") {
-    if (req.body.id == undefined)
-      res.send({ status: "failed", message: "missing id parameter." });
+    if (req.body.no == undefined)
+      res.send({ status: "failed", message: "missing no parameter." });
     card.topUpBalance(req.body.no, req.body.balance, result => {
       res.send(result);
     });
@@ -379,7 +379,7 @@ app.post("/bill", (req, res) => {
   else if (req.body.data == undefined)
     res.send({ status: "failed", message: "missing data parameter." });
   else if (req.body.task == "add") {
-    bill.addBill(req.body.data, result => {
+    bill.addBill(req.body, result => {
       res.send(result);
     });
   }
