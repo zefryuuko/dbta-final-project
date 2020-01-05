@@ -10,9 +10,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="/staff" style="font-size:20px; padding: 10px; font-weight: bold;">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/history.php" style="font-size:20px; padding: 10px; font-weight: bold;">Transaction History</a></li>
-                <li class="nav-item"><a class="nav-link" href="/staff/new_order.php" style="font-size:20px; padding: 10px; font-weight: bold;">New Order</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/staffs.php" style="font-size:20px; padding: 10px; font-weight: bold;">Staff Details</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/menu.php" style="font-size:20px; padding: 10px; font-weight: bold;">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="/staff/discounts.php" style="font-size:20px; padding: 10px; font-weight: bold;">Discounts</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/branch.php" style="font-size:20px; padding: 10px; font-weight: bold;">Branch</a></li>
                 <li class="nav-item"><a class="nav-link" href="/staff/membership.php" style="font-size:20px; padding: 10px; font-weight: bold;">Members</a></li>
             </ul>

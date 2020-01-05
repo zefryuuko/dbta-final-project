@@ -45,29 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="card border-dark mb-3">
-          <img
-            src="/resources/order.svg"
-            class="card-img-top"
-            style="width:100%; margin: auto; padding: 10px;"
-          />
-          <div class="footer">
-            <div class="card-body">
-              <p
-                class="card-text"
-                style="text-align: center; margin-top: 45px;"
-              >
-                Click here to make a new order.
-              </p>
-              <a
-                href="/staff/new_order.php"
-                class="btn btn-primary"
-                style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;"
-                >New Order</a
-              >
-            </div>
-          </div>
-        </div>
+        
         <div class="card border-dark mb-3">
           <img
             src="/resources/staff.svg"
@@ -114,7 +92,29 @@
             </div>
           </div>
         </div>
-
+        <div class="card border-dark mb-3">
+          <img
+            src="/resources/discount.svg"
+            class="card-img-top"
+            style="width:100%; margin: auto; padding: 10px;"
+          />
+          <div class="footer">
+            <div class="card-body">
+              <p
+                class="card-text"
+                style="text-align: center; margin-top: 45px;"
+              >
+                Click here to see and edit discounts.
+              </p>
+              <a
+                href="/staff/discounts.php"
+                class="btn btn-primary"
+                style="width: 100%; background-color: #006335; border-color: #006335 ; font-weight: bold;"
+                >Discounts</a
+              >
+            </div>
+          </div>
+        </div>
         <div class="card border-dark mb-3">
           <img
             src="/resources/branch.svg"
