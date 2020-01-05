@@ -4,7 +4,7 @@ class Bill {
   }
 
   // CREATE
-  addBill(requestBody) {
+  addBill(requestBody, callback) {
     /*
       {
           cashier_id: 1,
@@ -24,6 +24,7 @@ class Bill {
           }
       }
     */
+    callback("success");
   }
 
   // READ
