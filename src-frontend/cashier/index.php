@@ -7,8 +7,13 @@
     <link href="/resources/logo.png" rel="shortcut icon" />
     <title>Dashboard</title>
     <?php include ("../components/bootstrap.php");?>
+    <?php 
+      $pageLevel = 1;
+      include("auth.php");
+    ?>
+    </head>
 
-    <body>
+    <body onload="try{auth()}catch(e){} staff()">
       <div class="container">
         <?php include ("../components/navbar/navbar_welcome.php");?>
         <div class="card-deck" style="width:100%; margin: 50px auto auto auto;">
