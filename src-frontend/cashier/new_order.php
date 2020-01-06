@@ -70,8 +70,8 @@
                 var element = JSON.parse(this.responseText)[0];
                 var uid = generateID(8);
                 var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td id="price-${uid}">Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" style="width: 45%"></a></td></tr>`
-                var formData = `<input type="hidden" name="item" id="item-${uid}" value="${element["item_id"]}"/>`;
-                var formDiscountData = `<input type="hidden" name="discount" id="discount-${uid}" value=""/>`;
+                var formData = `<input type="hidden" name="items[]" id="item-${uid}" value="${element["item_id"]}"/>`;
+                var formDiscountData = `<input type="hidden" name="discounts[]" id="discount-${uid}" value=""/>`;
                 document.getElementById("transactionTable").innerHTML += tableRow;
                 document.getElementById("orderDetails").innerHTML += formData;
                 document.getElementById("orderDetails").innerHTML += formDiscountData;
@@ -89,7 +89,7 @@
         // Update subtotal
         var newSubtotal = parseInt(document.getElementById("subTotal").innerHTML.slice(4)) - parseInt(document.getElementById("price-" + uid).innerHTML.slice(4));
         document.getElementById("subTotal").innerHTML = "Rp. " + newSubtotal.toString();
-        
+
         document.getElementById("table-" + uid).remove();  // Delete table entry
         document.getElementById("item-" + uid).remove();  // Delete item form entry
         document.getElementById("discount-" + uid).remove();  // Delete discount form entry
@@ -140,8 +140,8 @@
                 </table>
             </div>
             <!--Subtotal table-->
-            <form id="orderDetails">
-                <button type="button" onclick="" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 60%">
+            <form id="orderDetails" action="/cashier/checkout.php" method="POST">
+                <button type="submit" onclick="" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 60%">
                     Close Order
                 </button>
 
