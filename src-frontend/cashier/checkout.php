@@ -35,7 +35,10 @@
                         </tr>
                     </thead>
                     <tbody style="font-size: 18px">
-                        <?php include("../components/modular/order_checkout.php"); ?>
+                        <?php
+                            include("../components/modular/order_checkout.php"); 
+                            generateTableBody($_POST);
+                        ?>
                     </tbody>
                 </table>
             </div>
