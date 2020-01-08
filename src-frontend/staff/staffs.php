@@ -50,7 +50,7 @@ else  // Staff deletion
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/resources/logo.png" rel="shortcut icon" />
-    <title>Dashboard</title>
+    <title>Staff - Dashboard</title>
 
     <?php include("../components/bootstrap.php"); ?>
     <?php 
