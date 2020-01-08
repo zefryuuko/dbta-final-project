@@ -60,8 +60,8 @@ else  // Staff deletion
 </head>
 
 <body onload="try{auth()}catch(e){} staff()">
-    <div class="container">
     <?php include("../components/navbar/navbar_staff.php"); ?>
+    <div class="container">
         <nav class="navbar navbar-light" style=" ">
                 <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Staff Details</a>
                 <form class="form-inline" style="" action="/staff/staffs.php">

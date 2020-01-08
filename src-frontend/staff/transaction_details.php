@@ -21,8 +21,8 @@
 </head>
 
 <body onload="try {auth()} catch(e) {}; redirect();">
-    <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
+    <div class="container">
 
         <div class="bodyLeft">
             <p style="font-size:20px; padding-left:10px; margin-left: 45px; margin-top:5px;">

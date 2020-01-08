@@ -15,8 +15,8 @@
 </head>
 
 <body onload="auth()">
-    <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
+    <div class="container">
 
         <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
             Transaction History

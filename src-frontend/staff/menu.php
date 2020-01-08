@@ -58,8 +58,8 @@ else  // Item deletion
 </head>
 
 <body onload="try{auth()}catch(e){} item()">
-    <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
+    <div class="container">
         <div class="bodyLeft">
             <nav class="navbar navbar-light" style="">
                 <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Items</a>

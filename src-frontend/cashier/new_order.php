@@ -99,8 +99,8 @@
     </head>
 
     <body onload="try{auth()}catch(e){} populateItems()">
-    <div class="container">
         <?php include("../components/navbar/navbar_cashier.php"); ?>
+    <div class="container">
         <div id="test"></div>
         <div class="bodyLeft" style="float:left; ">
         <p style="font-size:25px; margin-top:13px; font-weight: bold;">

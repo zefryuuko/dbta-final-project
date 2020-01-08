@@ -15,8 +15,8 @@
 </head>
 
 <body onload="auth()">
-    <div class="container">
         <?php include("../components/navbar/navbar_cashier.php"); ?>
+    <div class="container">
         <nav class="navbar navbar-light" style=" ">
                 <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Transactions</a>
                 <form class="form-inline" style="" action="/staff/staffs.php">

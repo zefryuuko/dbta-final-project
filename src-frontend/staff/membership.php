@@ -64,8 +64,8 @@ else  // Member deletion
 </head>
 
 <body onload="try {auth()}catch(e){} membership();">
-    <div class="container">
       <?php include ("../components/navbar/navbar_staff.php");?>
+    <div class="container">
       <div class="bodyLeft" >
         <nav
           class="navbar navbar-light"

@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Top up
     </head>
 
     <body onload="try{auth()}catch(e){} membership()">
-    <div class="container">
       <?php include ("../components/navbar/navbar_cashier.php");?>
+    <div class="container">
       <div class="bodyLeft">
         <nav
           class="navbar navbar-light"

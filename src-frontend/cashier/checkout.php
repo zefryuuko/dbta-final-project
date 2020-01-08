@@ -17,8 +17,8 @@
     </head>
 
     <body onload="try{auth()}catch(e){}">
-    <div class="container">
         <?php include("../components/navbar/navbar_cashier.php"); ?>
+    <div class="container">
 
         <div class="bodyLeft" style="">
             <p style="font-size:25px;font-weight: bold;margin-top:20px;">
