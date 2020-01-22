@@ -49,7 +49,7 @@ else  // Item deletion
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/resources/logo.png" rel="shortcut icon" />
-    <title>Dashboard</title>
+    <title>Menu - Dashboard</title>
     <?php include("../components/bootstrap.php"); ?></script>
     <?php 
       $pageLevel = 0;
@@ -58,8 +58,8 @@ else  // Item deletion
 </head>
 
 <body onload="try{auth()}catch(e){} item()">
-    <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
+    <div class="container">
         <div class="bodyLeft">
             <nav class="navbar navbar-light" style="">
                 <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Items</a>

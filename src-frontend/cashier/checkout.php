@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/resources/logo.png" rel="shortcut icon" />
-    <title>Dashboard</title>
+    <title>Checkout - Dashboard</title>
     <?php include("../components/bootstrap.php"); ?>
     <?php 
       $pageLevel = 1;
@@ -17,8 +17,8 @@
     </head>
 
     <body onload="try{auth()}catch(e){}">
-    <div class="container">
         <?php include("../components/navbar/navbar_cashier.php"); ?>
+    <div class="container">
 
         <div class="bodyLeft" style="">
             <p style="font-size:25px;font-weight: bold;margin-top:20px;">

@@ -47,8 +47,8 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST") // Handle authentication
 </head>
 
 <body style="background-color: #006335;" onload="auth()">
-    <div class="container">
         <?php include("../components/navbar/navbar_login.php"); ?>
+    <div class="container">
 
         <div class="box" style="width: 500px;
         height: 500px;

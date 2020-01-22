@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <div class="container">
       <?php include "components/navbar/navbar.php";?>
+    <div class="container">
       <div class="card-deck" style="width:80%; margin: 50px auto auto auto;">
           <div class="card border-dark mb-3">
             <img

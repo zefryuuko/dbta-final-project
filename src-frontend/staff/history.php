@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/resources/logo.png" rel="shortcut icon" />
-    <title>Dashboard</title>
+    <title>History - Dashboard</title>
     <?php include("../components/bootstrap.php"); ?>
     <?php 
       $pageLevel = 0;
@@ -15,8 +15,8 @@
 </head>
 
 <body onload="auth()">
-    <div class="container">
         <?php include("../components/navbar/navbar_staff.php"); ?>
+    <div class="container">
 
         <p style="font-size:25px; padding: 10px; font-weight: bold; margin-left: 45px; margin-top:20px;">
             Transaction History

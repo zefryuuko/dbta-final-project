@@ -50,7 +50,7 @@ else  // Staff deletion
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/resources/logo.png" rel="shortcut icon" />
-    <title>Dashboard</title>
+    <title>Staff - Dashboard</title>
 
     <?php include("../components/bootstrap.php"); ?>
     <?php 
@@ -60,8 +60,8 @@ else  // Staff deletion
 </head>
 
 <body onload="try{auth()}catch(e){} staff()">
-    <div class="container">
     <?php include("../components/navbar/navbar_staff.php"); ?>
+    <div class="container">
         <nav class="navbar navbar-light" style=" ">
                 <a class="navbar-brand" style="font-size:25px; font-weight: bold;">Staff Details</a>
                 <form class="form-inline" style="" action="/staff/staffs.php">

@@ -1,5 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
         <a class="navbar-brand" href="#">
             <img src="/resources/logo.png" width="85" height="85" class="d-inline-block align-top" alt="" />
         </a>
@@ -32,6 +33,7 @@
                 </div>
             </li>
         </ul> -->
+        </div>
     </nav>
 </header>
 <!--End of Header-->

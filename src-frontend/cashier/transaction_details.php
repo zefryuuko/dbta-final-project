@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="../Images/starbucks favicon.png" rel="shortcut icon" />
-    <title>Dashboard</title>
+    <title>Transaction Details - Dashboard</title>
 
     <?php include("../components/bootstrap.php"); ?>
     <?php 
@@ -21,8 +21,8 @@
 </head>
 
 <body onload="try {auth()} catch(e) {}; redirect();">
-    <div class="container">
         <?php include("../components/navbar/navbar_cashier.php"); ?>
+    <div class="container">
 
         <div class="bodyLeft">
             <p style="font-size:20px; padding-left:10px; margin-left: 45px; margin-top:5px;">

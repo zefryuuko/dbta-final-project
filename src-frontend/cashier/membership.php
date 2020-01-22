@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Top up
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/resources/logo.png" rel="shortcut icon" />
-    <title>Dashboard</title>
+    <title>Membership - Dashboard</title>
     <?php include ("../components/bootstrap.php");?></script>
     <?php 
       $pageLevel = 1;
@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") // Top up
     </head>
 
     <body onload="try{auth()}catch(e){} membership()">
-    <div class="container">
       <?php include ("../components/navbar/navbar_cashier.php");?>
+    <div class="container">
       <div class="bodyLeft">
         <nav
           class="navbar navbar-light"
