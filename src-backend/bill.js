@@ -112,6 +112,17 @@ class Bill {
   // UPDATE
 
   // DELETE
+  deleteBillById(id) {
+    this.db.query(
+      'DELETE FROM Bill WHERE bill_id = ?',
+      [id],
+      (err, result, fiends) => {
+        if (result.affectedRows() > 0) {
+          callback({status: "success"})
+        }
+        callback({status: "failed", message: "Invalid card number"})
+      })
+  }
 }
 
 module.exports = Bill;
