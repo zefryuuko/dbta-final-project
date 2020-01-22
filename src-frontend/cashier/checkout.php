@@ -52,29 +52,11 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" style="width: 150px; font-size: 22px; font-weight: bold;">
-                                Sub Total:
-                            </th>
-                            <th scope="col" style=" font-size: 22px; font-weight: bold;">
-                                Rp xxx.xxx.xxx
-                            </th>
-                            <th scope="col"></th>
-                        </tr>
-                        <tr>
-                            <th scope="col" style="width: 150px; font-size: 22px; font-weight: bold;">
-                                Tax
-                            </th>
-                            <th scope="col" style=" font-size: 22px; font-weight: bold;">
-                                Rp xxx.xxx.xxx
-                            </th>
-                            <th scope="col"></th>
-                        </tr>
-                        <tr>
-                            <th scope="col" style="width: 150px; font-size: 22px; font-weight: bold;">
                                 Total:
                             </th>
-                            <th scope="col" style=" font-size: 22px; font-weight: bold;">
-                                Rp xxx.xxx.xxx
-                            </th>
+                            <?php
+                                calculateSum($_POST["items"]);
+                            ?>
                             <th scope="col"></th>
                         </tr>
                     </thead>
