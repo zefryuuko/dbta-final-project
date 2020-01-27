@@ -72,38 +72,7 @@
                 var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td id="price-${uid}">Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" id="discountbtn-${uid}" data-toggle="modal" data-target="#discountModal-${uid}" style="width: 45%"></a></td></tr>`
                 var formData = `<input type="hidden" name="items[]" id="item-${uid}" value="${element["item_id"]}"/>`;
                 var formDiscountData = `<input type="hidden" name="discounts[]" id="discount-${uid}" value=""/>`;
-                var discountSelectionModal = `<div class="modal fade" id="discountModal-${uid}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Discount</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="branch-name" class="col-form-label">Selected Item</label>
-                  <input type="text" class="form-control" name="sub_total" value="Caramel Macchiato" disabled/>
-                </div>
-                <div class="form-group">
-                <label for="message-text" class="col-form-label">Select Discount</label>
-                <select  class="form-control" id="selectedDiscount-${uid}" value="">
-                    <option value="">No Discount</option>
-                    <option value="1">Disc 1</option>
-                    <option value="2">Disc 2</option>
-                </select>
-              </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="var e = document.getElementById('selectedDiscount-${uid}'); setDiscount('${uid}', e.options[e.selectedIndex].value)">Set Discount</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>`
+                var discountSelectionModal = genDiscountSelectionModal(uid, element["item_name"]);
                 document.getElementById("transactionTable").innerHTML += tableRow;
                 document.getElementById("orderDetails").innerHTML += formData;
                 document.getElementById("orderDetails").innerHTML += formDiscountData;
@@ -146,6 +115,48 @@
         document.orderDetails.submit();
     }
     </script>
+    <?php
+        include_once("../backend/discount.php");
+        $discounts = getDiscounts(1, 100);
+        $discountsOption = "";
+        foreach($discounts as $discount) {
+            $discountsOption = $discountsOption."<option value=\"".$discount["discount_id"]."\">".$discount["discount_name"]." - ".$discount["discount_percentage"]."%</option>";
+        }
+        echo "<script> function genDiscountSelectionModal(uid, itemName) {
+            return `<div class=\"modal fade\" id=\"discountModal-\${uid}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+            <div class=\"modal-dialog\" role=\"document\">
+              <div class=\"modal-content\">
+                <div class=\"modal-header\">
+                  <h5 class=\"modal-title\" id=\"exampleModalLabel\">Discount</h5>
+                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                    <span aria-hidden=\"true\">&times;</span>
+                  </button>
+                </div>
+                <div class=\"modal-body\">
+                  <form>
+                    <div class=\"form-group\">
+                      <label for=\"branch-name\" class=\"col-form-label\">Selected Item</label>
+                      <input type=\"text\" class=\"form-control\" name=\"sub_total\" value=\"\${itemName}\" disabled/>
+                    </div>
+                    <div class=\"form-group\">
+                    <label for=\"message-text\" class=\"col-form-label\">Select Discount</label>
+                    <select  class=\"form-control\" id=\"selectedDiscount-\${uid}\" value=\"\">
+                        <option value=\"\">No Discount</option>".
+                        $discountsOption."
+                    </select>
+                  </div>
+                    <div class=\"modal-footer\">
+                      <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancel</button>
+                      <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" onclick=\"var e = document.getElementById('selectedDiscount-\${uid}'); setDiscount('\${uid}', e.options[e.selectedIndex].value)\">Set Discount</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>`
+        }";
+        echo "</script>";
+    ?>
     </head>
 
     <body onload="try{auth()}catch(e){} populateItems()">
