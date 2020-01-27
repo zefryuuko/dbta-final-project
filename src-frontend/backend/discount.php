@@ -24,9 +24,8 @@ function removeDiscount($discount_id)
     return json_decode($raw_data, true);
 }
 
-function getDiscounts($page = 1)
+function getDiscounts($page = 1, $showCount = 5)
 {
-    global $showCount;
     $raw_data = callAPI("GET", "http://localhost:8081/discount?count=".$showCount."&page=".$page);
     return json_decode($raw_data, true);
 }
