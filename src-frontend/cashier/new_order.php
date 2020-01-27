@@ -137,6 +137,14 @@
             document.getElementById("discountbtn-" + uid).style = "width: 45%; opacity:.5;";
         }
     }
+
+    function closeOrder() {
+        if (document.orderDetails.childElementCount == 2) {
+            alert("A minimum of one item is required to close an order.");
+            return false;
+        }
+        document.orderDetails.submit();
+    }
     </script>
     </head>
 
