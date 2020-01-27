@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
 app.use(express.static("public"));
 
 var db = mysql.createPool({
-  connectionLimit: 1,
+  connectionLimit: 5,
   host: authInfo["host"],
   user: authInfo["user"],
   password: authInfo["password"],
