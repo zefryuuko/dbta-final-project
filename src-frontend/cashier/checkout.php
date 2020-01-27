@@ -55,6 +55,7 @@
                                 Total:
                             </th>
                             <?php
+                                $sum = 0;
                                 calculateSum($_POST);
                             ?>
                             <th scope="col"></th>
@@ -104,11 +105,11 @@
               <form action="/staff/menu.php" method="POST">
                 <div class="form-group">
                   <label for="branch-name" class="col-form-label">Sub Total</label>
-                  <input type="text" class="form-control" name="sub_total" value="120000" disabled/>
+                  <input type="text" class="form-control" name="sub_total" value="<?php echo $sum?>" disabled/>
                 </div>
                 <div class="form-group">
                 <label for="message-text" class="col-form-label">Payment Method</label>
-                <select  class="form-control" name="item_size" value="".$item["item_size"]."">
+                <select  class="form-control" name="paymentMethod" id="paymentMethod" onchange="switchPaymentMethod()">
                     <option value="1">Cash</option>
                     <option value="2">Starbucks Card</option>
                     <option value="3">Debit Card</option>
@@ -117,11 +118,11 @@
               </div>
               <div class="form-group" id="paymentMethodDetails">
                 <label for="message-text" class="col-form-label">Cash Amount</label>
-                <input type="text" class="form-control" name="sub_total" value="120000">
+                <input type="number" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>">
               </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Checkout</button>
+                  <button type="submit" id="btnCheckout" class="btn btn-primary">Checkout</button>
                 </div>
               </form>
             </div>
@@ -129,4 +130,59 @@
         </div>
       </div>
 </body>
+<script>
+  function checkCard() {
+    var cardNo = document.getElementById("cardNo").value;
+    if (cardNo == "") {
+      document.getElementById("sbuxCardDetails").innerHTML = "Please insert card number.";
+    } else {
+      document.getElementById("sbuxCardDetails").innerHTML = "Checking.. This shouldn't take long.";
+      var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var items = JSON.parse(this.responseText);
+                var message = "";
+                if (items.length == 0) {
+                    message = "Incorrect card number or card has been deactivated.";
+                    return;
+                }
+                items.forEach(element => {
+                    message = `Cardholder Name: ${element["cardholder_name"]} <br/>
+                    Card Balance: ${element["card_balance"]} <br/>`;
+                    message += parseInt(<?php echo $sum?>) <= parseInt(element["card_balance"]) ? `Balance is sufficient for checkout.` : "Insufficient balance."
+                    if (parseInt(<?php echo $sum?>) <= parseInt(element["card_balance"])) {
+                      document.getElementById("btnCheckout").disabled = false;
+                      document.getElementById("btnCheckCard").disabled = true;
+                      document.getElementById("cardNo").disabled = true;
+                    }
+                });
+                document.getElementById("sbuxCardDetails").innerHTML = message;
+            }
+        }
+        xhttp.open("GET", "http://localhost:8081/card?no=" + cardNo);
+        xhttp.send();
+    }
+  }    
+
+  function switchPaymentMethod() {
+      var e = document.getElementById("paymentMethod");
+      if (e.options[e.selectedIndex].value == "1") {
+        document.getElementById("paymentMethodDetails").innerHTML = `<label for="message-text" class="col-form-label">Cash Amount</label>
+            <input type="number" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>">`;
+        document.getElementById("btnCheckout").disabled = false;
+      } else if (e.options[e.selectedIndex].value == "2") {
+        document.getElementById("paymentMethodDetails").innerHTML = `<label for="message-text" class="col-form-label">Starbucks Card Number</label>
+            <input type="text" class="form-control" id="cardNo" name="cardNo" value="" placeholder="Card Number">
+            <label for="message-text" class="col-form-label" id="sbuxCardDetails"></label>
+            <button type="button" style="margin-top:3px; width:100%;" id="btnCheckCard" onclick="checkCard()" class="btn btn-primary">Check Card</button>
+            <input type="hidden" class="form-control" name="amountPaid" value="<?php echo $sum?>">`;
+        document.getElementById("btnCheckout").disabled = "1";
+      }
+      else  {
+        document.getElementById("paymentMethodDetails").innerHTML = `<label for="message-text" class="col-form-label">Pay Amount</label>
+            <input type="number" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>" disabled>`;
+        document.getElementById("btnCheckout").disabled = false;
+      }
+  }
+</script>
 </html>
