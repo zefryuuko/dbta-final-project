@@ -33,7 +33,7 @@ function getDiscounts($page = 1)
 
 function getDiscountByID($discount_id)
 {
-    $raw_data = callAPI("GET", "http://localhost:8081/discount?id=".$item_id);
+    $raw_data = callAPI("GET", "http://localhost:8081/discount?id=".$discount_id);
     return json_decode($raw_data, true);
 }
 
