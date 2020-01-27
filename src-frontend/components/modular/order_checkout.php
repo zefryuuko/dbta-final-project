@@ -19,6 +19,7 @@ function generateTableBody($POSTData)
 
 function calculateSum($POSTData)
 {
+    global $sum;
     $sum = 0;
     for ($i = 0; $i < count($POSTData["items"]); $i++)
     {
