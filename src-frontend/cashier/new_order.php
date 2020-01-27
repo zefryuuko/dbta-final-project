@@ -130,11 +130,12 @@
     }
 
     function setDiscount(uid, discountId) {
-        alert(`${uid} ${discountId}`)
-        document.getElementById("discount-" + uid).value = discountId;
-        document.getElementById("price-" + uid).style = "color:green";
-        document.getElementById("discountbtn-" + uid).dataset.target = "";
-        document.getElementById("discountbtn-" + uid).style = "width: 45%; opacity:.5;";
+        if (discountId != "") {
+            document.getElementById("discount-" + uid).value = discountId;
+            document.getElementById("price-" + uid).style = "color:orange";
+            document.getElementById("discountbtn-" + uid).dataset.target = "";
+            document.getElementById("discountbtn-" + uid).style = "width: 45%; opacity:.5;";
+        }
     }
     </script>
     </head>
@@ -181,8 +182,8 @@
                 </table>
             </div>
             <!--Subtotal table-->
-            <form id="orderDetails" action="/cashier/checkout.php" method="POST">
-                <button type="submit" onclick="" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 60%">
+            <form name="orderDetails" id="orderDetails" action="/cashier/checkout.php" method="POST">
+                <button type="button" onclick="return closeOrder()" class="btn btn-light btn-primary btn-lg btn-outline-dark" style="width: 60%">
                     Close Order
                 </button>
 
