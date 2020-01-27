@@ -69,7 +69,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 var element = JSON.parse(this.responseText)[0];
                 var uid = generateID(8);
-                var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td id="price-${uid}">Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" data-toggle="modal" data-target="#discountModal-${uid}" style="width: 45%"></a></td></tr>`
+                var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td id="price-${uid}">Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" id="discountbtn-${uid}" data-toggle="modal" data-target="#discountModal-${uid}" style="width: 45%"></a></td></tr>`
                 var formData = `<input type="hidden" name="items[]" id="item-${uid}" value="${element["item_id"]}"/>`;
                 var formDiscountData = `<input type="hidden" name="discounts[]" id="discount-${uid}" value=""/>`;
                 var discountSelectionModal = `<div class="modal fade" id="discountModal-${uid}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -96,8 +96,8 @@
                 </select>
               </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onclick="var e = document.getElementById('selectedDiscount-${uid}'); setDiscount('${uid}', e.options[e.selectedIndex].value)">Checkout</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="var e = document.getElementById('selectedDiscount-${uid}'); setDiscount('${uid}', e.options[e.selectedIndex].value)">Set Discount</button>
                 </div>
               </form>
             </div>
@@ -132,6 +132,9 @@
     function setDiscount(uid, discountId) {
         alert(`${uid} ${discountId}`)
         document.getElementById("discount-" + uid).value = discountId;
+        document.getElementById("price-" + uid).style = "color:green";
+        document.getElementById("discountbtn-" + uid).dataset.target = "";
+        document.getElementById("discountbtn-" + uid).style = "width: 45%; opacity:.5;";
     }
     </script>
     </head>
@@ -168,8 +171,8 @@
             <table class="table" style="width: 550px; float: left;">
                     <tbody class="thead-dark">
                         <tr>
-                            <th scope="col" style="width: 240px; font-size: 25px; font-weight: bold;">
-                                Sub Total:
+                            <th scope="col" style="width: 240px; font-size: 20px; font-weight: bold;">
+                                Total <br>(before discount):
                             </th>
                             <th scope="col" id="subTotal" style=" font-size: 25px; font-weight: bold;">Rp. 0</th>
                             <th scope="col"></th>
