@@ -55,7 +55,7 @@
                                 Total:
                             </th>
                             <?php
-                                calculateSum($_POST["items"]);
+                                calculateSum($_POST);
                             ?>
                             <th scope="col"></th>
                         </tr>
