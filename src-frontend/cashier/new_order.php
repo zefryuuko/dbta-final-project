@@ -69,12 +69,45 @@
             if (this.readyState == 4 && this.status == 200) {
                 var element = JSON.parse(this.responseText)[0];
                 var uid = generateID(8);
-                var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td id="price-${uid}">Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" style="width: 45%"></a></td></tr>`
+                var tableRow = `<tr id="table-${uid}"><td>${element["item_name"]}</td><td>${element["item_size"]}</td><td id="price-${uid}">Rp. ${element["item_price"]}</td><td><a onclick="removeItem('${uid}')"><img src="/resources/cross.svg" style="width: 45%" /></a></td><td><a href="#"><img src="/resources/discount.svg" data-toggle="modal" data-target="#discountModal-${uid}" style="width: 45%"></a></td></tr>`
                 var formData = `<input type="hidden" name="items[]" id="item-${uid}" value="${element["item_id"]}"/>`;
                 var formDiscountData = `<input type="hidden" name="discounts[]" id="discount-${uid}" value=""/>`;
+                var discountSelectionModal = `<div class="modal fade" id="discountModal-${uid}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Discount</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="branch-name" class="col-form-label">Selected Item</label>
+                  <input type="text" class="form-control" name="sub_total" value="Caramel Macchiato" disabled/>
+                </div>
+                <div class="form-group">
+                <label for="message-text" class="col-form-label">Select Discount</label>
+                <select  class="form-control" id="selectedDiscount-${uid}" value="">
+                    <option value="">No Discount</option>
+                    <option value="1">Disc 1</option>
+                    <option value="2">Disc 2</option>
+                </select>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="var e = document.getElementById('selectedDiscount-${uid}'); setDiscount('${uid}', e.options[e.selectedIndex].value)">Checkout</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>`
                 document.getElementById("transactionTable").innerHTML += tableRow;
                 document.getElementById("orderDetails").innerHTML += formData;
                 document.getElementById("orderDetails").innerHTML += formDiscountData;
+                document.body.innerHTML += discountSelectionModal;
 
                 // Update subtotal
                 var newSubtotal = parseInt(document.getElementById("subTotal").innerHTML.slice(4)) + element["item_price"];
@@ -93,7 +126,12 @@
         document.getElementById("table-" + uid).remove();  // Delete table entry
         document.getElementById("item-" + uid).remove();  // Delete item form entry
         document.getElementById("discount-" + uid).remove();  // Delete discount form entry
+        document.getElementById("discountModal-" + uid).remove();  // Delete discount selection modal
+    }
 
+    function setDiscount(uid, discountId) {
+        alert(`${uid} ${discountId}`)
+        document.getElementById("discount-" + uid).value = discountId;
     }
     </script>
     </head>
