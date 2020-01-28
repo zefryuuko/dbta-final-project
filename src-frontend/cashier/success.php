@@ -21,10 +21,12 @@ print_r($_POST); -->
       $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
     ?>
     <script>
+        var billId = 0;
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                
+                var bill = JSON.parse(this.responseText);
+                billId = bill.id;
             }
         }
         xhttp.open("POST", "http://localhost:8081/bill");
@@ -33,6 +35,11 @@ print_r($_POST); -->
         details.task = "add";
         console.log(JSON.stringify(details));
         xhttp.send("data=" + JSON.stringify(details));
+
+        function openBill() {
+            var w = window.open("/cashier/bill.php?id=" + billId, '_blank');
+            w.focus();
+        }
     </script>
     </head>
 
@@ -55,7 +62,7 @@ print_r($_POST); -->
                 Pay Bill
             </button> -->
             
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal" style="width: 49%;">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal" style="width: 49%;" onclick="openBill()">
                 Print Bill
             </button>
             
