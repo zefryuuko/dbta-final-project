@@ -120,9 +120,9 @@
                 <label for="message-text" class="col-form-label">Payment Method</label>
                 <select  class="form-control" name="paymentMethod" id="paymentMethod" onchange="switchPaymentMethod()">
                     <option value="1">Cash</option>
-                    <option value="2">Starbucks Card</option>
-                    <option value="3">Debit Card</option>
-                    <option value="4">Credit Card</option>
+                    <option value="4">Starbucks Card</option>
+                    <option value="2">Debit Card</option>
+                    <option value="3">Credit Card</option>
                 </select>
               </div>
               <div class="form-group">
@@ -191,7 +191,7 @@
         document.getElementById("paymentMethodDetails").innerHTML = `<label for="message-text" class="col-form-label">Cash Amount</label>
             <input type="number" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>">`;
         document.getElementById("btnCheckout").disabled = false;
-      } else if (e.options[e.selectedIndex].value == "2") {
+      } else if (e.options[e.selectedIndex].value == "4") {
         document.getElementById("paymentMethodDetails").innerHTML = `<label for="message-text" class="col-form-label">Starbucks Card Number</label>
             <input type="number" class="form-control" id="cardNoInput"/>
             <input type="hidden" value="" id="cardNo" name="cardNo"/>
