@@ -24,7 +24,26 @@ class Bill {
           }
       }
     */
-    callback("success");
+   
+    // Add Bill
+    // this.db.query(
+    //   "INSERT INTO Bill (branch_id, cashier_id, check_number, dine_type, amount_paid, amount_change) VALUES (?, ?, ?, ?, ?, ?)",
+    //   [requestBody.branchId, requestBody.staffId, requestBody.checkNumber, requestBody.amountPaid, requestBody.amountChange],
+    //   (err, result, fields) => {
+    //     // Insert payment details
+    //     this.db.query(
+    //       "INSERT INTO PaymentDetails (bill_id, method_id, card_no) VALUES (?, ?, ?)",
+    //       [result.insertId, requestBody.paymentMethod, requestBody.cardNo],
+    //       (err, result, fields) => {
+    //         // Insert transaction details
+
+    //       }
+    //     )
+    //   }
+
+    // )
+    console.log(requestBody);
+    callback(requestBody);
   }
 
   // READ
@@ -40,7 +59,7 @@ class Bill {
 
   getBillByID(id, callback) {
     this.db.query(
-      "SELECT b.bill_id, r.branch_name, c.staff_name, b.check_number, b.dine_type, b.amount_paid, b.amount_change, i.item_name, i.item_size, t.item_price, d.discount_name, t.discount_percentage, m.method_name, p.card_no, s.cardholder_name FROM Bill b LEFT JOIN Branch r ON r.branch_id = b.branch_id LEFT JOIN Staff c ON c.staff_id = b.cashier_id LEFT JOIN TransactionDetails t ON t.bill_id = b.bill_id LEFT JOIN Items i ON i.item_id = t.item_id LEFT JOIN Discount d ON d.discount_id = t.discount_id LEFT JOIN PaymentDetails p ON p.bill_id = b.bill_id LEFT JOIN PaymentMethod m ON p.method_id = m.method_id LEFT JOIN StarbucksCard s ON s.card_number = p.card_no WHERE b.bill_id = ?",
+      "SELECT b.bill_id, r.branch_name, c.staff_name, b.check_number, b.dine_type, b.amount_paid, b.amount_change, b.date_time, i.item_name, i.item_size, t.item_price, d.discount_name, t.discount_percentage, m.method_name, p.card_no, s.cardholder_name FROM Bill b LEFT JOIN Branch r ON r.branch_id = b.branch_id LEFT JOIN Staff c ON c.staff_id = b.cashier_id LEFT JOIN TransactionDetails t ON t.bill_id = b.bill_id LEFT JOIN Items i ON i.item_id = t.item_id LEFT JOIN Discount d ON d.discount_id = t.discount_id LEFT JOIN PaymentDetails p ON p.bill_id = b.bill_id LEFT JOIN PaymentMethod m ON p.method_id = m.method_id LEFT JOIN StarbucksCard s ON s.card_number = p.card_no WHERE b.bill_id = ?",
       [id],
       (err, result, fields) => {
         // Format query results to make it readable
@@ -59,6 +78,7 @@ class Bill {
           amount_total: 0,
           amount_paid: result[0].amount_paid,
           amount_change: result[0].amount_change,
+          date_time: result[0].date_time,
           payment_method: result[0].method_name,
           card_no: result[0].card_no != undefined ? result[0].card_no : "",
           cardholder_name:
