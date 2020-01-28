@@ -375,6 +375,7 @@ app.delete("/card", (req, res) => {
   });
 });
 
+// Bill Routes
 app.get("/bill", (req, res) => {
   if (req.query.id != undefined) {
     bill.getBillByID(req.query.id, result => {
@@ -397,6 +398,7 @@ app.get("/bill", (req, res) => {
 });
 
 app.post("/bill", (req, res) => {
+  req.body = JSON.parse(req.body.data);
   if (req.body.task == undefined)
     res.send({ status: "failed", message: "missing task parameter." });
   else if (req.body.task == "add") {

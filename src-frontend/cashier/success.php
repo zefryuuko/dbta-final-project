@@ -20,6 +20,20 @@ print_r($_POST); -->
       include("../backend/config.php");
       $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
     ?>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                
+            }
+        }
+        xhttp.open("POST", "http://localhost:8081/bill");
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        var details = JSON.parse(`<?php echo json_encode($_POST)?>`);
+        details.task = "add";
+        console.log(JSON.stringify(details));
+        xhttp.send("data=" + JSON.stringify(details));
+    </script>
     </head>
 
     <body onload="try{auth()}catch(e){}">
