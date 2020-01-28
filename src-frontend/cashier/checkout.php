@@ -12,6 +12,7 @@
       $pageLevel = 1;
       include("auth.php");
       include("../backend/staff.php");
+      include("../backend/config.php");
       $staffName = getStaffByID($_COOKIE["id"])[0]["staff_name"];
     ?>
     </head>
@@ -102,12 +103,20 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="/staff/menu.php" method="POST">
+              <form action="/cashier/success.php" method="POST">
                 <div class="form-group">
                   <label for="branch-name" class="col-form-label">Sub Total</label>
                   <input type="text" class="form-control" name="sub_total" value="<?php echo $sum?>" disabled/>
                 </div>
                 <div class="form-group">
+                <?php
+                  foreach($_POST["items"] as $item) {
+                    echo "<input type=\"hidden\" name=\"items[]\" value=\"".$item."\"></input>";
+                  }
+                  foreach($_POST["discounts"] as $discount) {
+                    echo "<input type=\"hidden\" name=\"discounts[]\" value=\"".$discount."\"></input>";
+                  }
+                ?>
                 <label for="message-text" class="col-form-label">Payment Method</label>
                 <select  class="form-control" name="paymentMethod" id="paymentMethod" onchange="switchPaymentMethod()">
                     <option value="1">Cash</option>
@@ -116,6 +125,16 @@
                     <option value="4">Credit Card</option>
                 </select>
               </div>
+              <div class="form-group">
+              <label for="message-text" class="col-form-label">Dine type</label>
+                <select  class="form-control" name="dineType" id="dineType">
+                    <option value="0">Dine in</option>
+                    <option value="1">Takeaway</option>
+                </select>
+              </div>
+              <input type="hidden" name="staffId" value="<?php echo $_COOKIE["id"]?>"/>
+              <input type="hidden" name="branchId" value="<?php echo $branchId?>"/>
+              <input type="hidden" name="checkNumber" value="<?php echo $checkNumber?>"/>
               <div class="form-group" id="paymentMethodDetails">
                 <label for="message-text" class="col-form-label">Cash Amount</label>
                 <input type="number" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>">
@@ -132,7 +151,7 @@
 </body>
 <script>
   function checkCard() {
-    var cardNo = document.getElementById("cardNo").value;
+    var cardNo = document.getElementById("cardNoInput").value;
     if (cardNo == "") {
       document.getElementById("sbuxCardDetails").innerHTML = "Please insert card number.";
     } else {
@@ -141,9 +160,9 @@
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var items = JSON.parse(this.responseText);
-                var message = "";
                 if (items.length == 0) {
                     message = "Incorrect card number or card has been deactivated.";
+                    document.getElementById("sbuxCardDetails").innerHTML = message;
                     return;
                 }
                 items.forEach(element => {
@@ -153,10 +172,12 @@
                     if (parseInt(<?php echo $sum?>) <= parseInt(element["card_balance"])) {
                       document.getElementById("btnCheckout").disabled = false;
                       document.getElementById("btnCheckCard").disabled = true;
-                      document.getElementById("cardNo").disabled = true;
+                      document.getElementById("cardNoInput").disabled = true;
                     }
                 });
                 document.getElementById("sbuxCardDetails").innerHTML = message;
+                alert(document.getElementById("cardNoInput").value)
+                document.getElementById("cardNo").value = document.getElementById("cardNoInput").value;
             }
         }
         xhttp.open("GET", "http://localhost:8081/card?no=" + cardNo);
@@ -172,7 +193,8 @@
         document.getElementById("btnCheckout").disabled = false;
       } else if (e.options[e.selectedIndex].value == "2") {
         document.getElementById("paymentMethodDetails").innerHTML = `<label for="message-text" class="col-form-label">Starbucks Card Number</label>
-            <input type="text" class="form-control" id="cardNo" name="cardNo" value="" placeholder="Card Number">
+            <input type="number" class="form-control" id="cardNoInput"/>
+            <input type="hidden" value="" id="cardNo" name="cardNo"/>
             <label for="message-text" class="col-form-label" id="sbuxCardDetails"></label>
             <button type="button" style="margin-top:3px; width:100%;" id="btnCheckCard" onclick="checkCard()" class="btn btn-primary">Check Card</button>
             <input type="hidden" class="form-control" name="amountPaid" value="<?php echo $sum?>">`;
@@ -180,7 +202,8 @@
       }
       else  {
         document.getElementById("paymentMethodDetails").innerHTML = `<label for="message-text" class="col-form-label">Pay Amount</label>
-            <input type="number" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>" disabled>`;
+            <input type="hidden" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>">
+            <input type="number" class="form-control" name="" min="<?php echo $sum?>" value="<?php echo $sum?>" disabled>`;
         document.getElementById("btnCheckout").disabled = false;
       }
   }
