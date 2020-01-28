@@ -176,7 +176,6 @@
                     }
                 });
                 document.getElementById("sbuxCardDetails").innerHTML = message;
-                alert(document.getElementById("cardNoInput").value)
                 document.getElementById("cardNo").value = document.getElementById("cardNoInput").value;
             }
         }
