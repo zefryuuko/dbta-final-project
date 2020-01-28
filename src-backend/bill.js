@@ -4,44 +4,71 @@ class Bill {
   }
 
   // CREATE
-  addBill(requestBody, callback) {
-    /*
-      {
-          cashier_id: 1,
-          items: [
-              {
-                item_id: 2
-              },
-              {
-                  item_id: 3,
-                  discount_id: 1
+
+  insertDetails(billId, itemId, discountId) {
+    // Get item price
+    this.db.query(
+      "SELECT item_price FROM Items WHERE item_id = ?",
+      [itemId],
+      (err, result, fields) => {
+        var itemPrice = result[0].item_price;
+        // Get discount percentage
+        this.db.query(
+          "SELECT discount_percentage FROM Discount WHERE discount_id = ?",
+          [discountId],
+          (err, result, fields) => {
+            var discountPercentage = result.length > 0 ? result[0].discount_percentage : null ;
+            // Insert transaction details
+            this.db.query("INSERT INTO TransactionDetails (bill_id, item_id, item_price, discount_id, discount_percentage) VALUES (?, ?, ?, ?, ?)",
+              [billId, itemId, (parseInt(itemPrice) - parseInt(itemPrice) * parseInt(discountPercentage) / 100) >= 0 ? parseInt(itemPrice) - parseInt(itemPrice) * parseInt(discountPercentage) / 100 : itemPrice, discountId == "" ? null : discountId, discountPercentage],
+              (err, result, fields) => {
+
               }
-          ],
-          payment: 
-          {
-              method: 2,
-              cardNo: 1234567890123456
+            );
           }
+        );
       }
-    */
-   
+    );
+  }
+  
+  addBill(requestBody, callback) {
     // Add Bill
-    // this.db.query(
-    //   "INSERT INTO Bill (branch_id, cashier_id, check_number, dine_type, amount_paid, amount_change) VALUES (?, ?, ?, ?, ?, ?)",
-    //   [requestBody.branchId, requestBody.staffId, requestBody.checkNumber, requestBody.amountPaid, requestBody.amountChange],
-    //   (err, result, fields) => {
-    //     // Insert payment details
-    //     this.db.query(
-    //       "INSERT INTO PaymentDetails (bill_id, method_id, card_no) VALUES (?, ?, ?)",
-    //       [result.insertId, requestBody.paymentMethod, requestBody.cardNo],
-    //       (err, result, fields) => {
-    //         // Insert transaction details
+    this.db.query(
+      "INSERT INTO Bill (branch_id, cashier_id, check_number, dine_type, amount_paid, amount_change, date_time) VALUES (?, ?, ?, ?, ?, ?, NOW())",
+      [requestBody.branchId, requestBody.staffId, requestBody.checkNumber, requestBody.dineType, requestBody.amountPaid, parseInt(requestBody.amountPaid) - parseInt(requestBody.amountTotal)],
+      (err, result, fields) => {
+        // Insert payment details
+        var billId = result.insertId;
+        this.db.query(
+          "INSERT INTO PaymentDetails (bill_id, method_id, card_no) VALUES (?, ?, ?)",
+          [billId, requestBody.paymentMethod, requestBody.cardNo],
+          (err, result, fields) => {
+            // Insert transaction details
+            for (var i = 0; i < requestBody.items.length; i++) {
+              this.insertDetails(billId, requestBody.items[i], requestBody.discounts[i])
+            }
+          }
+        )
+      }
+    )
 
-    //       }
-    //     )
-    //   }
-
-    // )
+    // Subtract card balance
+    if (requestBody.paymentMethod == "4") {
+      this.db.query(
+        "SELECT card_balance FROM StarbucksCard WHERE card_number = ?",
+        [requestBody.cardNo],
+        (err, result, fields) => {
+          var cardBalance = result[0].card_balance
+          var test = this.db.query(
+            "UPDATE StarbucksCard SET card_balance = ? WHERE card_number = ?",
+            [parseInt(cardBalance) - parseInt(requestBody.amountTotal), requestBody.cardNo],
+            (err, result, fields) => {
+              
+            }
+          )
+        }
+      )
+    }
     console.log(requestBody);
     callback(requestBody);
   }
