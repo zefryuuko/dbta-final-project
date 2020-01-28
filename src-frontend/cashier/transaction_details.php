@@ -29,7 +29,9 @@
                 <b>Transaction ID</b>: <?php echo $transactionDetails["bill_id"] ?> <br />
                 <b>Branch</b>: <?php echo $transactionDetails["branch_name"] ?> <br />
                 <b>Check Number</b>: <?php echo $transactionDetails["check_number"] ?> <br />
-                <b>Cashier</b>: <?php echo $transactionDetails["staff_name"] ?>
+                <b>Cashier</b>: <?php echo $transactionDetails["staff_name"] ?> <br />
+                <b>Dine Type</b>: <?php echo $transactionDetails["dine_type"] ?> <br />
+                <b>Date</b>: <?php echo $transactionDetails["date_time"] ?>
             </p>
 
             <div class="table-responsive">
