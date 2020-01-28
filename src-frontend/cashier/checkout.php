@@ -135,6 +135,7 @@
               <input type="hidden" name="staffId" value="<?php echo $_COOKIE["id"]?>"/>
               <input type="hidden" name="branchId" value="<?php echo $branchId?>"/>
               <input type="hidden" name="checkNumber" value="<?php echo $checkNumber?>"/>
+              <input type="hidden" name="amountTotal" value="<?php echo $sum?>"/>
               <div class="form-group" id="paymentMethodDetails">
                 <label for="message-text" class="col-form-label">Cash Amount</label>
                 <input type="number" class="form-control" name="amountPaid" min="<?php echo $sum?>" value="<?php echo $sum?>">
