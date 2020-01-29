@@ -38,7 +38,7 @@
                 document.getElementById("itemsTable").innerHTML = tableBody;
             }
         }
-        xhttp.open("GET", "https://api.zryz.xyz/item");
+        xhttp.open("GET", "https://api.zryk.xyz/item");
         xhttp.send();
     }
 
@@ -59,7 +59,7 @@
                 document.getElementById("itemsTable").innerHTML = tableBody;
             }
         }
-        xhttp.open("GET", `https://api.zryz.xyz/item?name=${document.getElementById("itemSearchBox").value}`);
+        xhttp.open("GET", `https://api.zryk.xyz/item?name=${document.getElementById("itemSearchBox").value}`);
         xhttp.send();
     }
 
@@ -83,7 +83,7 @@
                 document.getElementById("subTotal").innerHTML = "Rp. " + newSubtotal.toString();
             }
         }
-        xhttp.open("GET", `https://api.zryz.xyz/item?id=${id}`);
+        xhttp.open("GET", `https://api.zryk.xyz/item?id=${id}`);
         xhttp.send();
     }
 

@@ -29,7 +29,7 @@ print_r($_POST); -->
                 billId = bill.id;
             }
         }
-        xhttp.open("POST", "https://api.zryz.xyz/bill");
+        xhttp.open("POST", "https://api.zryk.xyz/bill");
         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         var details = JSON.parse(`<?php echo json_encode($_POST)?>`);
         details.task = "add";
