@@ -180,7 +180,7 @@
                 document.getElementById("cardNo").value = document.getElementById("cardNoInput").value;
             }
         }
-        xhttp.open("GET", "http://localhost:8081/card?no=" + cardNo);
+        xhttp.open("GET", "https://api.zryz.xyz/card?no=" + cardNo);
         xhttp.send();
     }
   }    
